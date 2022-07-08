@@ -3,19 +3,8 @@
 use config\views;
 
 $path_base_template = (new views())->ruta_templates;
+$url_assets = (new views())->url_assets;
 ?>
 <div class="top-box" data-toggle="sticky-onscroll">
-    <div class="container">
-
-        <?php include $path_base_template.'nav/_redes_sociales.php' ?>
-
-        <section class="header-inner">
-            <div class="container">
-                <?php if($data->menu){ ?>
-                <?php include $path_base_template.'nav/menu.php' ?>
-                <?php } ?>
-            </div>
-        </section><!-- /.menu-->
-    </div>
+    <img src="<?php echo $url_assets; ?>img/head/rojo.jpeg" id="h_rojo">
 </div>
-<div class="top-box-mask"></div>
