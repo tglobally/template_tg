@@ -1,6 +1,6 @@
 {
-  "name": "gamboa.martin/template_1",
-  "description": "Template 1",
+  "name": "gamboa.martin/template_tg",
+  "description": "Template Para Think Globally",
   "type": "library",
   "license": "GPL-3.0-or-later",
   "authors": [
@@ -28,7 +28,8 @@
         "gamboa.martin/errores": "^1.0.0",
         "gamboa.martin/test": "dev-main",
         "gamboa.martin/system": "dev-main",
-        "gamboa.martin/template": "dev-main"
+        "gamboa.martin/template": "dev-main",
+        "gamboa.martin/template_1": "dev-main"
     },
     "require-dev": {
         "phpunit/phpunit": "^9.5"
