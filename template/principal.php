@@ -19,22 +19,19 @@ $links_menu = (new links_menu(registro_id: -1))->links;
 
 </head>
 
-<body class="">
+<body class="login-body">
 <div id="fb-root"></div>
 <div class="container container-wrapper">
     <header class="header">
         <?php include $path_base_template.'nav/_head.php'?>
     </header><!-- /.header-->
-    <main class="main section-color-primary">
+    <main class="main section-color-primary login-main">
         <?php  include($data->include_action); ?>
     </main><!-- /.main-part-->
-
-    <footer class="footer">
-        <?php include $path_base_template.'footer/_footer.php' ?>
-    </footer>
     <a class="btn btn-scoll-up color-secondary" id="btn-scroll-up"></a>
 
     <?php include $path_base_template.'java.php'; ?>
     <?php echo $data->js_view; ?>
+</div>
 </body>
 </html>

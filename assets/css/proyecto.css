@@ -10,8 +10,78 @@
     border: 0 !important;
 }
 
-#h_rojo{
-    width: 100%;
-    height: 200px;
+.login-body{
+    background-color: #FFFFFF;
 }
 
+.login-main{
+    background-color: transparent;
+}
+
+#h_rojo{
+    width: 70%;
+    height: 450px;
+    position: absolute;
+    margin-top: -7.5%;
+}
+
+#h_logo{
+    width: auto;
+    height: 125px;
+    margin-top: 8%;
+}
+
+#h_azul{
+    position: absolute;
+    width: 100%;
+    height: 450px;
+}
+
+.tg-logo{
+    position: absolute;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+}
+
+#h_azul_fuerte{
+    position: absolute;
+    margin-top: -8%;
+    margin-left: 33%;
+}
+
+.container-login{
+    margin-top: 28%;
+}
+
+.login-control{
+    margin-top: 5%;
+}
+
+.login-input{
+    border-radius: 10px;
+    font-family: Helvetica;
+    background-color: #FFFFFF !important;
+    font-size: 18px;
+    border: 1px solid #CCCCCC !important;
+}
+
+.login-label{
+    font-size: 16px;
+    margin-left: 5%;
+    font-family: Helvetica;
+}
+
+.login-button{
+    margin-top: 15%;
+    border-radius: 10px;
+    font-size: 20px;
+    background-color: #000099;
+    font-family: Helvetica;
+    border: 1px solid #000099;
+
+}
+
+.login-button:hover{
+    background-color: #FF0033;
+}
