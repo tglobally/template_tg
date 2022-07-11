@@ -1,3 +1,7 @@
+@font-face {
+    font-family: 'Helvetica';
+    src: url('fonts/Helvetica.ttc') format('truetype');
+}
 .btn-modifica{
     margin-left: 15px;
 }
@@ -60,7 +64,7 @@
 
 .login-input{
     border-radius: 10px;
-    font-family: Helvetica;
+    font-family: Helvetica, serif;
     background-color: #FFFFFF !important;
     font-size: 18px;
     border: 1px solid #CCCCCC !important;

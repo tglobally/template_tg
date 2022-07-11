@@ -1,11 +1,11 @@
-<?php /** @var controllers\controlador_adm_session $controlador */ ?>
+<?php /** @var gamboamartin\controllers\controlador_adm_session $controlador */ ?>
 <div class="container container-login">
     <div class="row">
         <div class="col-md-12">
             <!-- /. widget-AVAILABLE PACKAGES -->
             <div class="row-cols-12">
-                <div class="col-lg-3"></div>
-                <div class="col-lg-6">
+                <div class="col-lg-4"></div>
+                <div class="col-lg-4">
                     <form method="post" action="./index.php?seccion=adm_session&accion=loguea" class="form-additional">
                         <div class="control-group">
                             <label class="control-label login-label" for="inputUsername2">Usuario:</label>
