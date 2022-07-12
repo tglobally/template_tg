@@ -11,7 +11,12 @@ class directivas extends \gamboamartin\template\directivas {
 
     }
 
-
+    /**
+     * Genera un boton par ala validacion de una persona fisica
+     * @param int $registro_id Registro a aplicar transaccion
+     * @param string $valida_persona_fisica Valor actual del registro
+     * @return array|string
+     */
     public function button_href_valida_persona_fisica(int $registro_id, string $valida_persona_fisica): array|string
     {
 
@@ -219,7 +224,7 @@ class directivas extends \gamboamartin\template\directivas {
      * @param bool $value_vacio Para altas en caso de que sea vacio o no existe el key
      * @return array|string
      */
-    private function input_text_required(bool $disable, string $name, string $place_holder, stdClass $row_upd,
+    public function input_text_required(bool $disable, string $name, string $place_holder, stdClass $row_upd,
                                          bool $value_vacio ): array|string
     {
 
