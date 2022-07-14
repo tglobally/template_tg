@@ -4,6 +4,7 @@ use gamboamartin\system\links_menu;
 
 
 $path_base_template = (new views())->ruta_templates;
+$heads = (new views())->heads;
 $links_menu = (new links_menu(registro_id: -1))->links;
 
 ?>
@@ -23,7 +24,13 @@ $links_menu = (new links_menu(registro_id: -1))->links;
 <div id="fb-root"></div>
 <div class="container container-wrapper">
     <header class="header">
-        <?php include $path_base_template.'nav/_head.php'?>
+        <?php
+        if (isset($heads->adm_seccion->login) && $heads->adm_seccion->login !== '') {
+            include $heads->adm_seccion->login;
+        }else {
+            include $path_base_template . 'nav/_head.php';
+        }
+        ?>
     </header><!-- /.header-->
     <main class="main section-color-primary login-main">
         <?php  include($data->include_action); ?>
