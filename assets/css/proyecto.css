@@ -94,3 +94,23 @@
 .login-button:hover{
     background-color: #FF0033;
 }
+
+/**************** I N I C I O *****************/
+.cont_menu{
+    height: 190px;
+    background-color: #000098;
+}
+
+.icono_menu{
+    width: 100px;
+}
+
+.cont_icono {
+    position: absolute;
+    left: 12rem;
+    top: 7rem;
+    z-index: 100;
+    width: 70px;
+    display: block;
+    cursor: pointer;
+}

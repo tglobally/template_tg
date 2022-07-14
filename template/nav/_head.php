@@ -7,7 +7,11 @@ $url_assets = (new views())->url_assets;
 ?>
 
 <div class="head-imagen">
-    <img src="<?php echo $url_assets?>img/head/completo_6.svg" id="header_completo">
+    <div class="col-md-12 cont_menu">
+        <div class="cont_icono">
+            <img src="<?php echo $url_assets?>img/head/menu.png" class="icono_menu">
+        </div>
+    </div>
     <div class="col-md-12 tg-logo">
         <img src="<?php echo $url_assets?>img/head/tg_logo.png" id="h_logo">
     </div>
