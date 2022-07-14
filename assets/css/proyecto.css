@@ -114,3 +114,28 @@
     display: block;
     cursor: pointer;
 }
+
+.cont_text_inicio{
+    text-align: center;
+}
+
+.cont_imagen_accion img{
+    border-radius: 15px 15px 0 0;
+}
+
+.cont_text_accion{
+    background-color: #000098;
+    border-radius: 0 0 15px 15px;
+    padding: 10%;
+    box-shadow: -3px 4px 17px black;
+}
+
+.text_accion{
+    color: #FFFFFF;
+    padding-left: 20%;
+}
+
+.text_seccion{
+    color: #FFFFFF;
+    font-weight: bold;
+}
