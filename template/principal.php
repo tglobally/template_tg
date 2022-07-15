@@ -31,8 +31,14 @@ $links_menu = (new links_menu(registro_id: -1))->links;
 <div class="container container-wrapper">
     <header class="header">
         <?php
-        if (isset($heads->adm_seccion->login) && $heads->adm_seccion->login !== '') {
-            include $heads->adm_seccion->login;
+        $seccion_en_ejecucion = $data->controlador->tabla;
+        $accion_en_ejecucion = 'login';
+        if(isset($_GET['accion'])){
+            $accion_en_ejecucion = $_GET['accion'];
+        }
+
+        if (isset($heads->$seccion_en_ejecucion->$accion_en_ejecucion) && $heads->$seccion_en_ejecucion->$accion_en_ejecucion !== '') {
+            include $heads->adm_session->login;
         }else {
             include $path_base_template . 'nav/_head.php';
         }
