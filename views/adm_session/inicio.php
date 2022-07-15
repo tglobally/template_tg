@@ -20,7 +20,7 @@ $url_assets = (new views())->url_assets;
     <div class="row">
         <div class="col-md-12">
             <div class="col-sm-2">
-                <a href="./index.php?seccion=org_empresa&accion=alta&session_id=<?php echo $controlador->session_id;?>">
+                <a href="#">
                     <div class="cont_imagen_accion">
                         <img src="<?php echo $url_assets?>img/inicio/imagen_1.jpg">
                     </div>
