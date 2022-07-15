@@ -1,7 +1,6 @@
-<?php /** @var controllers\controlador_adm_session $controlador */
+<?php /** @var gamboamartin\controllers\controlador_adm_session $controlador */
 
 use config\views;
-use gamboamartin\system\links_menu;
 $url_assets = (new views())->url_assets;
 ?>
 
