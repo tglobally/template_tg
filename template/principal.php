@@ -2,9 +2,15 @@
 use config\views;
 use gamboamartin\system\links_menu;
 
+$views = new views();
 
-$path_base_template = (new views())->ruta_templates;
-$heads = (new views())->heads;
+$path_base_template = $views->ruta_templates;
+if(!isset($views->heads)){
+    $error = (new gamboamartin\errores\errores())->error(mensaje: 'Error no existe heads en views', data:$views);
+    print_r($error);
+    exit;
+}
+$heads = $views->heads;
 $links_menu = (new links_menu(registro_id: -1))->links;
 
 ?>
@@ -12,7 +18,7 @@ $links_menu = (new links_menu(registro_id: -1))->links;
 <html lang="es">
 <head>
     <meta charset="UTF-8" />
-    <title>Catalogos SAT</title>
+    <title>Empresas</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
     <meta http-equiv="x-ua-compatible" content="ie=edge" />
     <?php include $path_base_template.'css.php'; ?>
