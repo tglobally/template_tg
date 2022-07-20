@@ -3,13 +3,8 @@ namespace tglobally\template_tg;
 use gamboamartin\errores\errores;
 use stdClass;
 
-class directivas extends \gamboamartin\template\directivas {
+class directivas extends \html\directivas {
 
-    public function __construct(){
-        $html = new html();
-        parent::__construct(html: $html);
-
-    }
 
     /**
      * Genera un boton par ala validacion de una persona fisica
@@ -188,8 +183,8 @@ class directivas extends \gamboamartin\template\directivas {
         return $div;
     }
 
-    private function input_text(bool $disable, string $name, string $place_holder, bool $required, stdClass $row_upd,
-                                bool $value_vacio): array|string
+    public function input_text(bool $disable, string $name, string $place_holder, bool $required, stdClass $row_upd,
+                               bool $value_vacio): array|string
     {
         $label = $this->html->label(id_css: $name, place_holder: $place_holder);
         if(errores::$error){
