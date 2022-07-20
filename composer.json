@@ -12,7 +12,7 @@
 
     "autoload": {
         "psr-4": {
-          "html\\": "src/",
+          "tglobally\\template_tg\\": "src/",
           "config\\": "config/",
           "base\\": "base/"
         }

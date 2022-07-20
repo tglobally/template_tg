@@ -1,9 +1,8 @@
 <?php
-namespace html;
-use base\frontend\params_inputs;
-use config\generales;
+namespace tglobally\template_tg;
+
 use gamboamartin\errores\errores;
-use stdClass;
+
 
 class html extends \gamboamartin\template\html {
     /**
