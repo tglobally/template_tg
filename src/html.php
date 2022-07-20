@@ -36,6 +36,11 @@ class html extends \gamboamartin\template\html {
         return "<div class='alert alert-warning' role='alert' ><strong>Advertencia!</strong> $mensaje.</div>";
     }
 
+    /**
+     * Genera un boton
+     * @param string $etiqueta Etiqueta a mostrar en el boton
+     * @return string
+     */
     public function button(string $etiqueta): string
     {
         return "<button type='button' class='btn btn-info col-sm-12'>$etiqueta</button>";
@@ -137,6 +142,16 @@ class html extends \gamboamartin\template\html {
     }
 
 
+    /**
+     * Se genera un input de tipo email
+     * @param bool $disabled Si disabled retorna text disabled
+     * @param string $id_css Identificador de tipo css
+     * @param string $name Nombre del input
+     * @param string $place_holder Contenido a mostrar previo a la captura del input
+     * @param bool $required Si required aplica required en html
+     * @param mixed $value Valor de input
+     * @return string|array
+     */
     public function email(bool $disabled, string $id_css, string $name, string $place_holder, bool $required,
                           mixed $value): string|array
     {
@@ -151,7 +166,16 @@ class html extends \gamboamartin\template\html {
     }
 
 
-
+    /**
+     * Genera un input de tipo fecha
+     * @param bool $disabled
+     * @param string $id_css
+     * @param string $name
+     * @param string $place_holder
+     * @param bool $required
+     * @param mixed $value
+     * @return string|array
+     */
     public function fecha(bool $disabled, string $id_css, string $name, string $place_holder, bool $required,
                          mixed $value): string|array
     {
