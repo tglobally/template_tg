@@ -136,6 +136,22 @@ class html extends \gamboamartin\template\html {
         return $select_in.$options_html.$select_fin;
     }
 
+
+    public function email(bool $disabled, string $id_css, string $name, string $place_holder, bool $required,
+                          mixed $value): string|array
+    {
+
+        $html = parent::email(disabled:$disabled,id_css:  $id_css,name:  $name,place_holder:  $place_holder,
+            required:  $required,value:  $value);
+        if(errores::$error){
+            return $this->error->error(mensaje: 'Error al generar html', data: $html);
+        }
+
+        return str_replace('|class|', "class='form-control'", $html);
+    }
+
+
+
     public function fecha(bool $disabled, string $id_css, string $name, string $place_holder, bool $required,
                          mixed $value): string|array
     {
