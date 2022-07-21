@@ -5,11 +5,11 @@ use gamboamartin\controllers\controlador_adm_seccion;
 use gamboamartin\errores\errores;
 use gamboamartin\test\liberator;
 use gamboamartin\test\test;
-use html\directivas;
 use JetBrains\PhpStorm\NoReturn;
 use JsonException;
 
 use stdClass;
+use tglobally\template_tg\directivas;
 use tglobally\template_tg\html;
 
 
@@ -31,7 +31,6 @@ class directivasTest extends test {
 
 
     /**
-     * @throws JsonException
      */
     #[NoReturn] public function test_button_href_status(): void
     {
@@ -234,9 +233,6 @@ class directivasTest extends test {
         $this->assertStringContainsStringIgnoringCase("<div class='alert alert-warning' role='alert' ><strong>Advertencia!</strong> a.</div>", $resultado);
         errores::$error = false;
     }
-
-
-
 
 }
 

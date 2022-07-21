@@ -188,31 +188,6 @@ class directivas extends \gamboamartin\template\directivas {
         return $div;
     }
 
-    private function input_text(bool $disable, string $name, string $place_holder, bool $required, stdClass $row_upd,
-                                bool $value_vacio): array|string
-    {
-        $label = $this->html->label(id_css: $name, place_holder: $place_holder);
-        if(errores::$error){
-            return $this->error->error(mensaje: 'Error al generar label', data: $label);
-        }
-
-        if($value_vacio){
-            $row_upd = new stdClass();
-            $row_upd->$name = '';
-        }
-
-        $html= $this->html->text(disabled:$disable, id_css: $name, name: $name, place_holder: $place_holder,
-            required: $required, value: $row_upd->$name);
-
-        $div = $this->html->div_label(html:  $html,label:$label);
-        if(errores::$error){
-            return $this->error->error(mensaje: 'Error al integrar div', data: $div);
-        }
-
-        return $div;
-
-    }
-
     /**
      * Genera un input tipo required
      * @version 0.32.2
