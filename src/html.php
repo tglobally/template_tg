@@ -68,23 +68,10 @@ class html extends \gamboamartin\template\html {
         return str_replace(array('|role|', '|class|'), array("role='button'", "class='btn btn-$style col-sm-12'"), $html);
     }
 
+
     /**
-     * Genera un div con un label dentro del div
      * @param int $cols Numero de columnas css
      * @param string $contenido Contenido a integrar dentro del div
-     * @return string
-     */
-    private function div_control_group_cols(int $cols, string $contenido): string
-    {
-        $div_contenedor_ini = "<div class='control-group col-sm-$cols'>";
-        $div_contenedor_fin = "</div>";
-
-        return $div_contenedor_ini.$contenido.$div_contenedor_fin;
-    }
-
-    /**
-     * @param int $cols Numero de columnas css
-     * @param string $contenido
      * @param string $label
      * @param string $name
      * @return string
