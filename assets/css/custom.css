@@ -663,7 +663,6 @@ body .select-secondary .dropdown-menu li:hover a {
     background: transparent;
     border: 1px solid rgba(116, 116, 116, 0.1);
     border-radius: 0;
-    color: white;
     height: 60px;
 }
 
