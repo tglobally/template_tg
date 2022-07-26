@@ -1,5 +1,5 @@
 <?php
-namespace html;
+namespace tglobally\template_tg;
 use gamboamartin\errores\errores;
 use stdClass;
 
@@ -70,12 +70,11 @@ class directivas extends \gamboamartin\template\directivas {
     public function input_codigo(int $cols, stdClass $row_upd, bool $value_vacio): array|string
     {
 
-        if($cols<=0){
-            return $this->error->error(mensaje: 'Error cold debe ser mayor a 0', data: $cols);
+        $valida = $this->valida_cols(cols: $cols);
+        if(errores::$error){
+            return $this->error->error(mensaje: 'Error al validar columnas ', data: $valida);
         }
-        if($cols>=13){
-            return $this->error->error(mensaje: 'Error cold debe ser menor o igual a  12', data: $cols);
-        }
+
 
         $html =$this->input_text_required(disable: false,name: 'codigo',place_holder: 'Codigo',row_upd: $row_upd,
             value_vacio: $value_vacio);
@@ -187,31 +186,6 @@ class directivas extends \gamboamartin\template\directivas {
         }
 
         return $div;
-    }
-
-    private function input_text(bool $disable, string $name, string $place_holder, bool $required, stdClass $row_upd,
-                                bool $value_vacio): array|string
-    {
-        $label = $this->html->label(id_css: $name, place_holder: $place_holder);
-        if(errores::$error){
-            return $this->error->error(mensaje: 'Error al generar label', data: $label);
-        }
-
-        if($value_vacio){
-            $row_upd = new stdClass();
-            $row_upd->$name = '';
-        }
-
-        $html= $this->html->text(disabled:$disable, id_css: $name, name: $name, place_holder: $place_holder,
-            required: $required, value: $row_upd->$name);
-
-        $div = $this->html->div_label(html:  $html,label:$label);
-        if(errores::$error){
-            return $this->error->error(mensaje: 'Error al integrar div', data: $div);
-        }
-
-        return $div;
-
     }
 
     /**

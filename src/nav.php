@@ -1,5 +1,5 @@
 <?php
-namespace html;
+namespace tglobally\template_tg;
 use config\generales;
 use gamboamartin\errores\errores;
 use gamboamartin\validacion\validacion;

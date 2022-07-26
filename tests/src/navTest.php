@@ -4,10 +4,10 @@ namespace tests\controllers;
 use gamboamartin\errores\errores;
 use gamboamartin\test\liberator;
 use gamboamartin\test\test;
-use html\nav;
 use JetBrains\PhpStorm\NoReturn;
 
 use stdClass;
+use tglobally\template_tg\nav;
 
 
 class navTest extends test {

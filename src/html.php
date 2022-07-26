@@ -1,9 +1,8 @@
 <?php
-namespace html;
-use base\frontend\params_inputs;
-use config\generales;
+namespace tglobally\template_tg;
+
 use gamboamartin\errores\errores;
-use stdClass;
+
 
 class html extends \gamboamartin\template\html {
     /**
@@ -36,6 +35,11 @@ class html extends \gamboamartin\template\html {
         return "<div class='alert alert-warning' role='alert' ><strong>Advertencia!</strong> $mensaje.</div>";
     }
 
+    /**
+     * Genera un boton
+     * @param string $etiqueta Etiqueta a mostrar en el boton
+     * @return string
+     */
     public function button(string $etiqueta): string
     {
         return "<button type='button' class='btn btn-info col-sm-12'>$etiqueta</button>";
@@ -64,23 +68,10 @@ class html extends \gamboamartin\template\html {
         return str_replace(array('|role|', '|class|'), array("role='button'", "class='btn btn-$style col-sm-12'"), $html);
     }
 
+
     /**
-     * Genera un div con un label dentro del div
      * @param int $cols Numero de columnas css
      * @param string $contenido Contenido a integrar dentro del div
-     * @return string
-     */
-    private function div_control_group_cols(int $cols, string $contenido): string
-    {
-        $div_contenedor_ini = "<div class='control-group col-sm-$cols'>";
-        $div_contenedor_fin = "</div>";
-
-        return $div_contenedor_ini.$contenido.$div_contenedor_fin;
-    }
-
-    /**
-     * @param int $cols Numero de columnas css
-     * @param string $contenido
      * @param string $label
      * @param string $name
      * @return string
@@ -136,6 +127,41 @@ class html extends \gamboamartin\template\html {
         return $select_in.$options_html.$select_fin;
     }
 
+
+    /**
+     * Se genera un input de tipo email
+     * @param bool $disabled Si disabled retorna text disabled
+     * @param string $id_css Identificador de tipo css
+     * @param string $name Nombre del input
+     * @param string $place_holder Contenido a mostrar previo a la captura del input
+     * @param bool $required Si required aplica required en html
+     * @param mixed $value Valor de input
+     * @return string|array
+     */
+    public function email(bool $disabled, string $id_css, string $name, string $place_holder, bool $required,
+                          mixed $value): string|array
+    {
+
+        $html = parent::email(disabled:$disabled,id_css:  $id_css,name:  $name,place_holder:  $place_holder,
+            required:  $required,value:  $value);
+        if(errores::$error){
+            return $this->error->error(mensaje: 'Error al generar html', data: $html);
+        }
+
+        return str_replace('|class|', "class='form-control'", $html);
+    }
+
+
+    /**
+     * Genera un input de tipo fecha
+     * @param bool $disabled
+     * @param string $id_css
+     * @param string $name
+     * @param string $place_holder
+     * @param bool $required
+     * @param mixed $value
+     * @return string|array
+     */
     public function fecha(bool $disabled, string $id_css, string $name, string $place_holder, bool $required,
                          mixed $value): string|array
     {

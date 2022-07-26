@@ -12,7 +12,7 @@
 
     "autoload": {
         "psr-4": {
-          "html\\": "src/",
+          "tglobally\\template_tg\\": "src/",
           "config\\": "config/",
           "base\\": "base/"
         }
@@ -28,8 +28,7 @@
         "gamboa.martin/errores": "^1.0.0",
         "gamboa.martin/test": "dev-main",
         "gamboa.martin/system": "dev-main",
-        "gamboa.martin/template": "dev-main",
-        "gamboa.martin/template_1": "dev-main"
+        "gamboa.martin/template": "dev-main"
     },
     "require-dev": {
         "phpunit/phpunit": "^9.5"

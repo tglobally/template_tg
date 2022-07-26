@@ -4,8 +4,8 @@ namespace tests\controllers;
 use gamboamartin\errores\errores;
 use gamboamartin\test\liberator;
 use gamboamartin\test\test;
-use html\html;
 use stdClass;
+use tglobally\template_tg\html;
 
 
 class htmlTest extends test {
