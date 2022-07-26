@@ -122,7 +122,7 @@ class html extends \gamboamartin\template\html {
 
     private function div_select(string $name, string $options_html): string
     {
-        $select_in = "<select class='form-control selectpicker color-secondary $name' id='$name' name='$name' >";
+        $select_in = "<select class='form-control selectpicker $name' id='$name' name='$name' >";
         $select_fin = '</select>';
         return $select_in.$options_html.$select_fin;
     }
