@@ -2257,7 +2257,7 @@ body  .lang-manu .icon-dropdown,
 
 .dropdown-menu>li>a:focus, .dropdown-menu>li>a:hover {
     background-color: transparent;
-    color: white;
+    color: #000;
 }
 
 .form-control,
