@@ -2269,7 +2269,7 @@ body  .lang-manu .icon-dropdown,
 }
 
 .btn.focus, .btn:focus, .btn:hover {
-    color: white;
+    color: #9A9A9A;
     text-decoration: none;
 }
 
