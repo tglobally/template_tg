@@ -76,7 +76,7 @@ class html extends \gamboamartin\template\html {
     /**
      * @param int $cols Numero de columnas css
      * @param string $contenido Contenido a integrar dentro del div
-     * @param string $label
+     * @param string $label Etiqueta a mostrar en div
      * @param string $name
      * @return string
      */
@@ -203,7 +203,7 @@ class html extends \gamboamartin\template\html {
     /**
      * @param int $cols Numero de columnas css
      ** @param mixed $id_selected Id o valor a comparar origen de la base de valor
-     * @param string $label
+     * @param string $label Etiqueta a mostrar en div
      * @param string $name
      * @param array $values
      * @return array|string
@@ -227,7 +227,7 @@ class html extends \gamboamartin\template\html {
 
     /**
      * @param int $cols Numero de columnas css
-     * @param string $label
+     * @param string $label Etiqueta a mostrar en div
      * @param string $name
      * @param string $options_html
      * @return array|string
