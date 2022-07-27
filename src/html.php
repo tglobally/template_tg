@@ -37,6 +37,10 @@ class html extends \gamboamartin\template\html {
 
     /**
      * Genera un boton
+     * @version 0.44.5
+     * @verfuncion 0.1.0
+     * @author mgamboa
+     * @fecha 2022-07-27 10:36
      * @param string $etiqueta Etiqueta a mostrar en el boton
      * @return string
      */

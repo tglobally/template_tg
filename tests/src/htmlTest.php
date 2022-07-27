@@ -47,6 +47,19 @@ class htmlTest extends test {
         errores::$error = false;
     }
 
+    public function test_button(): void
+    {
+        errores::$error = false;
+        $html = new html();
+        //$inicializacion = new liberator($inicializacion);
+
+        $etiqueta = '';
+        $resultado = $html->button($etiqueta);
+        $this->assertIsString($resultado);
+        $this->assertNotTrue(errores::$error);
+        errores::$error = false;
+    }
+
     public function test_button_href(): void
     {
         errores::$error = false;
