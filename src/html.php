@@ -1,6 +1,7 @@
 <?php
 namespace tglobally\template_tg;
 
+use base\frontend\params_inputs;
 use gamboamartin\errores\errores;
 
 
@@ -124,11 +125,11 @@ class html extends \gamboamartin\template\html {
 
     }
 
-    public function div_select(string $name, string $options_html, string $required = ""): array|string
+    protected function div_select(string $name, string $options_html, bool $required = false): array|string
     {
-        $required = trim($required);
-        if(!empty($required) && strcmp($required, "required") !== 0){
-            return $this->error->error(mensaje: 'La asignacion de required es incorrecta', data: $required);
+        $required_html = (new params_inputs())->required_html(required: $required);
+        if(errores::$error){
+            return $this->error->error(mensaje: 'La asignacion de required es incorrecta', data: $required_html);
         }
 
         $select_in = "<select class='form-control selectpicker $name' id='$name' name='$name' >";
@@ -205,31 +206,7 @@ class html extends \gamboamartin\template\html {
         return $options_html;
     }
 
-    /**
-     * @param int $cols Numero de columnas css
-     * @param mixed $id_selected Id o valor a comparar origen de la base de valor
-     * @param string $label Etiqueta a mostrar en div
-     * @param string $name
-     * @param array $values
-     * @param string $required
-     * @return array|string
-     */
-    public function select(int $cols, int $id_selected, string $label,string $name, array $values, string $required = ""): array|string
-    {
-
-        $options_html = $this->options(id_selected: $id_selected,values: $values);
-        if(errores::$error){
-            return $this->error->error(mensaje: 'Error al generar options', data: $options_html);
-        }
-
-        $select = $this->select_html(cols: $cols, label: $label,name: $name,options_html: $options_html);
-        if(errores::$error){
-            return $this->error->error(mensaje: 'Error al generar contenedor', data: $select);
-        }
-
-        return $select;
-
-    }
+   
 
     /**
      * @param int $cols Numero de columnas css
@@ -358,7 +335,7 @@ class html extends \gamboamartin\template\html {
         return $options_html_;
     }
 
-    
+
     /**
      * Genera um input text basado en los parametros enviados
      * @param bool $disabled Si disabled retorna text disabled
