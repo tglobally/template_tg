@@ -124,8 +124,13 @@ class html extends \gamboamartin\template\html {
 
     }
 
-    private function div_select(string $name, string $options_html): string
+    public function div_select(string $name, string $options_html, string $required = ""): array|string
     {
+        $required = trim($required);
+        if(!empty($required) && strcmp($required, "required") !== 0){
+            return $this->error->error(mensaje: 'La asignacion de required es incorrecta', data: $required);
+        }
+
         $select_in = "<select class='form-control selectpicker $name' id='$name' name='$name' >";
         $select_fin = '</select>';
         return $select_in.$options_html.$select_fin;
@@ -202,13 +207,14 @@ class html extends \gamboamartin\template\html {
 
     /**
      * @param int $cols Numero de columnas css
-     ** @param mixed $id_selected Id o valor a comparar origen de la base de valor
+     * @param mixed $id_selected Id o valor a comparar origen de la base de valor
      * @param string $label Etiqueta a mostrar en div
      * @param string $name
      * @param array $values
+     * @param string $required
      * @return array|string
      */
-    public function select(int $cols, int $id_selected, string $label,string $name, array $values): array|string
+    public function select(int $cols, int $id_selected, string $label,string $name, array $values, string $required = ""): array|string
     {
 
         $options_html = $this->options(id_selected: $id_selected,values: $values);
