@@ -19,7 +19,6 @@ $url_assets = (new views())->url_assets;
             </a>
         </div>
     </div>
-    <a>hola</a>
 
     <a href="./index.php?seccion=adm_session&accion=inicio&session_id=<?php echo $controlador->session_id?>">
         <div class="col-md-12 tg-logo">
