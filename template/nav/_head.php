@@ -14,9 +14,12 @@ $url_assets = (new views())->url_assets;
             <img src="<?php echo $url_assets?>img/head/menu.png" class="icono_menu">
         </div>
     </div>
-    <div class="col-md-12 tg-logo">
-        <img src="<?php echo $url_assets?>img/head/tg_logo.png" id="h_logo">
-    </div>
+
+    <a href="./index.php?seccion=adm_session&accion=inicio&session_id=<?php echo $controlador->session_id?>">
+        <div class="col-md-12 tg-logo">
+            <img src="<?php echo $url_assets?>img/head/tg_logo.png" id="h_logo">
+        </div>
+    </a>
 
 </div>
 
