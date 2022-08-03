@@ -24,7 +24,6 @@ $url_assets = (new views())->url_assets;
         <div class="col-md-12 tg-logo">
             <img src="<?php echo $url_assets?>img/head/tg_logo.png" id="h_logo">
         </div>
-        <a>hola</a>
     </a>
 </div>
 
