@@ -15,7 +15,7 @@ $url_assets = (new views())->url_assets;
         </div>
         <div class="cont_icono_logout">
             <a href="index.php?seccion=adm_session&accion=login">
-                <img src="<?php echo $url_assets?>img/head/menu.png" class="icono_menu">
+                <img src="<?php echo $url_assets?>../icons/icon_logout.svg" class="icono_menu">
             </a>
         </div>
     </div>
@@ -26,7 +26,6 @@ $url_assets = (new views())->url_assets;
         </div>
     </a>
 </div>
-
 
 
 <div class="overlay-navigation">
