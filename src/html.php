@@ -206,7 +206,7 @@ class html extends \gamboamartin\template\html {
         return $options_html;
     }
 
-   
+
 
     /**
      * @param int $cols Numero de columnas css
