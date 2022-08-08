@@ -78,7 +78,7 @@ class html extends \gamboamartin\template\html {
      * @param int $cols Numero de columnas css
      * @param string $contenido Contenido a integrar dentro del div
      * @param string $label Etiqueta a mostrar en div
-     * @param string $name
+     * @param string $name Name del input
      * @return string
      */
     private function div_control_group_cols_label(int $cols, string $contenido, string $label, string $name): string
@@ -211,7 +211,7 @@ class html extends \gamboamartin\template\html {
     /**
      * @param int $cols Numero de columnas css
      * @param string $label Etiqueta a mostrar en div
-     * @param string $name
+     * @param string $name Name del input
      * @param string $options_html
      * @return array|string
      */
