@@ -105,6 +105,17 @@
     width: 100px;
 }
 
+
+.cont_icono_logout {
+    position: absolute;
+    left: 95%;
+    top: 5rem;
+    z-index: 100;
+    width: 40px;
+    display: block;
+    cursor: pointer;
+}
+
 .cont_icono {
     position: absolute;
     left: 4rem;

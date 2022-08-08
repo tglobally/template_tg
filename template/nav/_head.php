@@ -13,13 +13,19 @@ $url_assets = (new views())->url_assets;
         <div class="cont_icono open-overlay">
             <img src="<?php echo $url_assets?>img/head/menu.png" class="icono_menu">
         </div>
-    </div>
-    <div class="col-md-12 tg-logo">
-        <img src="<?php echo $url_assets?>img/head/tg_logo.png" id="h_logo">
+        <div class="cont_icono_logout">
+            <a href="index.php?seccion=adm_session&accion=login">
+                <img src="<?php echo $url_assets?>../icons/icon_logout.svg" class="icono_menu">
+            </a>
+        </div>
     </div>
 
+    <a href="./index.php?seccion=adm_session&accion=inicio&session_id=<?php echo $controlador->session_id?>">
+        <div class="col-md-12 tg-logo">
+            <img src="<?php echo $url_assets?>img/head/tg_logo.png" id="h_logo">
+        </div>
+    </a>
 </div>
-
 
 
 <div class="overlay-navigation">
