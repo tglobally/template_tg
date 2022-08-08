@@ -25,9 +25,8 @@ use config\views; ?>
 <script type="text/javascript" src="<?php echo (new views())->url_assets; ?>js/markerclusterer.js"></script>
 <script src="<?php echo (new views())->url_assets; ?>js/map.js" type="text/javascript"></script>
 <!-- End JS MAP  -->
-<!-- Start blueimp  -->
-<script src="<?php echo (new views())->url_assets; ?>js/blueimp-gallery.min.js" type="text/javascript"></script>
-<!-- End blueimp  -->
+
+
 <script src="<?php echo (new views())->url_assets; ?>js/modernizr.custom.js"></script>
 <!-- Start custom template style  -->
 <script src="<?php echo (new views())->url_assets; ?>js/custom_template_style.js" type="text/javascript"></script>
@@ -40,3 +39,4 @@ use config\views; ?>
 <script src="<?php echo (new views())->url_assets; ?>js/dpejes_custom.js"></script>
 <script src="<?php echo (new views())->url_assets; ?>js/dpejes_custom.js"></script>
 <script src="<?php echo (new views())->url_assets; ?>js/facebook.js" type="text/javascript"></script>
+<script src="<?php echo (new views())->url_js; ?>base.js" type="text/javascript"></script>
