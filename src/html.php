@@ -79,10 +79,27 @@ class html extends \gamboamartin\template\html {
      * @param string $contenido Contenido a integrar dentro del div
      * @param string $label Etiqueta a mostrar en div
      * @param string $name Name del input
-     * @return string
+     * @return string|array
+     * @version 0.45.6
+     * @verfuncion 0.1.0
+     * @author mgamboa
+     * @fecha 2022-08-08 16:08
      */
-    private function div_control_group_cols_label(int $cols, string $contenido, string $label, string $name): string
+    private function div_control_group_cols_label(int $cols, string $contenido, string $label, string $name): string|array
     {
+        $name = trim($name);
+        if($name === ''){
+            return $this->error->error(mensaje: 'Error el $name esta vacio', data: $name);
+        }
+        $label = trim($label);
+        if($label === ''){
+            return $this->error->error(mensaje: 'Error el $label esta vacio', data: $label);
+        }
+        $valida = (new directivas())->valida_cols(cols:$cols);
+        if(errores::$error){
+            return $this->error->error(mensaje: 'Error al validar cols', data: $valida);
+        }
+
         $label_html = $this->label(id_css:$name,place_holder: $label);
         if(errores::$error){
             return $this->error->error(mensaje: 'Error al generar label', data: $label_html);
@@ -243,6 +260,14 @@ class html extends \gamboamartin\template\html {
      */
     public function label(string $id_css, string $place_holder): string|array
     {
+        $id_css = trim($id_css);
+        if($id_css === ''){
+            return $this->error->error(mensaje: 'Error el $id_css esta vacio', data: $id_css);
+        }
+        $place_holder = trim($place_holder);
+        if($place_holder === ''){
+            return $this->error->error(mensaje: 'Error el $place_holder esta vacio', data: $place_holder);
+        }
         $r_label = parent::label(id_css:$id_css,place_holder:  $place_holder);
         if(errores::$error){
             return $this->error->error(mensaje: 'Error al generar label', data: $r_label);

@@ -79,6 +79,24 @@ class htmlTest extends test {
         errores::$error = false;
     }
 
+    public function test_div_control_group_cols_label(): void
+    {
+        errores::$error = false;
+        $html = new html();
+        $html = new liberator($html);
+
+        $cols = '1';
+        $contenido = '';
+        $label = 'a';
+        $name = 'a';
+        $resultado = $html->div_control_group_cols_label($cols, $contenido, $label, $name);
+        $this->assertIsString($resultado);
+        $this->assertNotTrue(errores::$error);
+        $this->assertEquals("<div class='control-group col-sm-1'><label class='control-label' for='a'>a</label></div>", $resultado);
+
+        errores::$error = false;
+    }
+
 
     public function test_label(): void
     {
