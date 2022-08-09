@@ -142,6 +142,14 @@ class html extends \gamboamartin\template\html {
 
     }
 
+    /**
+     * Genera un div con un select
+     * @param string $name
+     * @param string $options_html
+     * @param bool $disabled
+     * @param bool $required
+     * @return array|string
+     */
     protected function div_select(string $name, string $options_html, bool $disabled = false,
                                   bool $required = false): array|string
     {
