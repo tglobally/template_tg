@@ -142,14 +142,19 @@ class html extends \gamboamartin\template\html {
 
     }
 
-    protected function div_select(string $name, string $options_html, bool $required = false): array|string
+    protected function div_select(string $name, string $options_html, bool $disabled = false,
+                                  bool $required = false): array|string
     {
         $required_html = (new params_inputs())->required_html(required: $required);
         if(errores::$error){
             return $this->error->error(mensaje: 'La asignacion de required es incorrecta', data: $required_html);
         }
+        $disabled_html = (new params_inputs())->disabled_html(disabled: $disabled);
+        if(errores::$error){
+            return $this->error->error(mensaje: 'La asignacion de disabled es incorrecta', data: $disabled_html);
+        }
 
-        $select_in = "<select class='form-control selectpicker $name' id='$name' name='$name' >";
+        $select_in = "<select class='form-control selectpicker $name' id='$name' name='$name' $required_html $disabled_html>";
         $select_fin = '</select>';
         return $select_in.$options_html.$select_fin;
     }
