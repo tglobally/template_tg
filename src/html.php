@@ -61,7 +61,7 @@ class html extends \gamboamartin\template\html {
      * @return string|array
      */
     public function button_href(string $accion, string $etiqueta, int $registro_id, string $seccion,
-                                string $style): string|array
+                                string $style, array $params = array()): string|array
     {
 
         $html = parent::button_href(accion: $accion,etiqueta:  $etiqueta,registro_id:  $registro_id,
