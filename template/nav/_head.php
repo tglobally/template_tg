@@ -4,6 +4,11 @@ use config\views;
 
 $path_base_template = (new views())->ruta_templates;
 $url_assets = (new views())->url_assets;
+$subtitulo0 = (new views())->subtitulo0;
+$subtitulo1 = (new views())->subtitulo1;
+$subtitulo2 = (new views())->subtitulo2;
+$subtitulo3 = (new views())->subtitulo3;
+$subtitulo4 = (new views())->subtitulo4;
 ?>
 
 
@@ -31,14 +36,11 @@ $url_assets = (new views())->url_assets;
 <div class="overlay-navigation">
     <nav role="navigation">
         <ul>
-            <li><a href="#" data-content="The beginning">Home</a></li>
-            <li><a class="" href="#" data-content="Curious?">About</a></li>
-            <li><a href="#" data-content="I got game">Skills</a></li>
-            <li><a href="#" data-content="Only the finest">Works</a></li>
-            <li><a href="#" data-content="Don't hesitate">Contact</a></li>
+            <li><a href="#" data-content="<?php echo $subtitulo0?>" id="Home-text-0"></a></li>
+            <li><a class="" href="#" data-content="<?php echo $subtitulo1?>" id="Home-text-1" >About</a></li>
+            <li><a href="#" data-content="<?php echo $subtitulo2?>" id="Home-text-2">Skills</a></li>
+            <li><a href="#" data-content="<?php echo $subtitulo3?>" id="Home-text-3">Works</a></li>
+            <li><a href="#" data-content="<?php echo $subtitulo4?>" id="Home-text-4">Contact</a></li>
         </ul>
     </nav>
 </div>
-
-
-
