@@ -1,14 +1,15 @@
 <?php
 /** @var stdClass $data Obtenido de index de la funcion data para la definicion del men  */
+/** @var base\controller\controler $controlador Controlador en ejecucion  */
 use config\views;
 
 $path_base_template = (new views())->ruta_templates;
 $url_assets = (new views())->url_assets;
-$subtitulo0 = (new views())->subtitulo0;
-$subtitulo1 = (new views())->subtitulo1;
-$subtitulo2 = (new views())->subtitulo2;
-$subtitulo3 = (new views())->subtitulo3;
-$subtitulo4 = (new views())->subtitulo4;
+$subtitulo_0 = (new views())->subtitulo_0;
+$subtitulo_1 = (new views())->subtitulo_1;
+$subtitulo_2 = (new views())->subtitulo_2;
+$subtitulo_3 = (new views())->subtitulo_3;
+$subtitulo_4 = (new views())->subtitulo_4;
 ?>
 
 
@@ -36,11 +37,11 @@ $subtitulo4 = (new views())->subtitulo4;
 <div class="overlay-navigation">
     <nav role="navigation">
         <ul>
-            <li><a href="#" data-content="<?php echo $subtitulo0?>" id="Home-text-0"></a></li>
-            <li><a class="" href="#" data-content="<?php echo $subtitulo1?>" id="Home-text-1" >About</a></li>
-            <li><a href="#" data-content="<?php echo $subtitulo2?>" id="Home-text-2">Skills</a></li>
-            <li><a href="#" data-content="<?php echo $subtitulo3?>" id="Home-text-3">Works</a></li>
-            <li><a href="#" data-content="<?php echo $subtitulo4?>" id="Home-text-4">Contact</a></li>
+            <li><a href="#" data-content="<?php echo $subtitulo_0; ?>" id="Home-text-0"></a></li>
+            <li><a class="" href="#" data-content="<?php echo $subtitulo_1; ?>" id="Home-text-1" >About</a></li>
+            <li><a href="#" data-content="<?php echo $subtitulo_2; ?>" id="Home-text-2">Skills</a></li>
+            <li><a href="#" data-content="<?php echo $subtitulo_3; ?>" id="Home-text-3">Works</a></li>
+            <li><a href="#" data-content="<?php echo $subtitulo_4; ?>" id="Home-text-4">Contact</a></li>
         </ul>
     </nav>
 </div>
