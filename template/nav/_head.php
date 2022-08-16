@@ -5,11 +5,7 @@ use config\views;
 
 $path_base_template = (new views())->ruta_templates;
 $url_assets = (new views())->url_assets;
-$subtitulo_0 = (new views())->subtitulo_0;
-$subtitulo_1 = (new views())->subtitulo_1;
-$subtitulo_2 = (new views())->subtitulo_2;
-$subtitulo_3 = (new views())->subtitulo_3;
-$subtitulo_4 = (new views())->subtitulo_4;
+
 ?>
 
 
@@ -37,11 +33,11 @@ $subtitulo_4 = (new views())->subtitulo_4;
 <div class="overlay-navigation">
     <nav role="navigation">
         <ul>
-            <li><a href="#" data-content="<?php echo $subtitulo_0; ?>" id="Home-text-0"></a></li>
-            <li><a class="" href="#" data-content="<?php echo $subtitulo_1; ?>" id="Home-text-1" >About</a></li>
-            <li><a href="#" data-content="<?php echo $subtitulo_2; ?>" id="Home-text-2">Skills</a></li>
-            <li><a href="#" data-content="<?php echo $subtitulo_3; ?>" id="Home-text-3">Works</a></li>
-            <li><a href="#" data-content="<?php echo $subtitulo_4; ?>" id="Home-text-4">Contact</a></li>
+            <li><a href="#" data-content="<?php echo $controlador->subtitulo[0]; ?>" id="Home-text-0"></a></li>
+            <li><a class="" href="#" data-content="<?php echo $controlador->subtitulo[1]; ?>" id="Home-text-1" >About</a></li>
+            <li><a href="#" data-content="<?php echo $controlador->subtitulo[2]; ?>" id="Home-text-2">Skills</a></li>
+            <li><a href="#" data-content="<?php echo $controlador->subtitulo[3]; ?>" id="Home-text-3">Works</a></li>
+            <li><a href="#" data-content="<?php echo $controlador->subtitulo[4]; ?>" id="Home-text-4">Contact</a></li>
         </ul>
     </nav>
 </div>
