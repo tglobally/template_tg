@@ -12,6 +12,13 @@ class directivas extends \gamboamartin\template\directivas {
     }
 
 
+    public function btn_action_next(string $label,string $value, string $type='submit'): string
+    {
+        $btn = "<button type='$type' class='btn btn-info btn-guarda col-md-12' ";
+        $btn .= "name='btn_action_next' value='$value'>$label</button>";
+        return $btn;
+    }
+
     /**
      * Genera un input de tipo codigo
      * @param int $cols Numero de columnas boostrap
