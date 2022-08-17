@@ -11,7 +11,13 @@ class directivas extends \gamboamartin\template\directivas {
 
     }
 
-
+    /**
+     * Genera un boton next action
+     * @param string $label
+     * @param string $value
+     * @param string $type
+     * @return string
+     */
     public function btn_action_next(string $label,string $value, string $type='submit'): string
     {
         $btn = "<button type='$type' class='btn btn-info btn-guarda col-md-12' ";
