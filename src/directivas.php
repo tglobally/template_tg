@@ -10,7 +10,7 @@ class directivas extends \gamboamartin\template\directivas {
         parent::__construct(html: $html);
 
     }
-    
+
 
     /**
      * Genera un input de tipo codigo
