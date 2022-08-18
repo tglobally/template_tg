@@ -117,8 +117,9 @@ class html extends \gamboamartin\template\html {
 
     /**
      * Genera un div para forms
-     * @param string $contenido
+     * @param string $contenido Contenido en html
      * @return string
+     * @version 0.57.8
      */
     private function div_controls(string $contenido): string
     {

@@ -112,6 +112,22 @@ class htmlTest extends test {
         errores::$error = false;
     }
 
+    public function test_div_controls(): void
+    {
+        errores::$error = false;
+        $html = new html();
+        $html = new liberator($html);
+
+
+        $contenido = 'z';
+        $_GET['session_id'] = 1;
+        $resultado = $html->div_controls($contenido);
+        $this->assertIsString($resultado);
+        $this->assertNotTrue(errores::$error);
+        $this->assertEquals("<div class='controls'>z</div>", $resultado);
+        errores::$error = false;
+    }
+
 
     public function test_label(): void
     {
