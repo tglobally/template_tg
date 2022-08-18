@@ -174,6 +174,25 @@ class htmlTest extends test {
         errores::$error = false;
     }
 
+    public function test_option_html(): void
+    {
+        errores::$error = false;
+        $html = new html();
+        $html = new liberator($html);
+
+
+        $descripcion_select = 'a';
+        $id_selected = '';
+        $value = 'x';
+        $_GET['session_id'] = 1;
+        $resultado = $html->option_html($descripcion_select, $id_selected, $value);
+        $this->assertIsString($resultado);
+        $this->assertNotTrue(errores::$error);
+        $this->assertEquals("<option value='x' >a</option>", $resultado);
+        errores::$error = false;
+
+    }
+
     public function test_text(): void
     {
         errores::$error = false;

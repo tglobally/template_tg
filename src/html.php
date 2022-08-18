@@ -224,9 +224,9 @@ class html extends \gamboamartin\template\html {
     }
 
     /**
-     * @param string $descripcion_select
+     * @param string $descripcion_select Descripcion para se mostrado en un select
      * @param mixed $id_selected Id o valor a comparar origen de la base de valor
-     * @param string $options_html
+     * @param string $options_html Options previamente cargados
      * @param mixed $value
      * @return array|string
      */
@@ -307,13 +307,9 @@ class html extends \gamboamartin\template\html {
      */
     PUBLIC function option(string $descripcion, bool $selected, int|string $value): string|array
     {
-        $value = trim($value);
-        if($value === ''){
-            return $this->error->error(mensaje: 'Error value no puede venir vacio', data: $value);
-        }
-        $descripcion = trim($descripcion);
-        if($descripcion === ''){
-            return $this->error->error(mensaje: 'Error $descripcion no puede venir vacio', data: $descripcion);
+        $valida = $this->valida_option(descripcion: $descripcion, value: $value);
+        if(errores::$error){
+            return $this->error->error(mensaje: 'Error al validar option', data: $valida);
         }
         $selected_html = '';
         if($selected){
@@ -323,14 +319,21 @@ class html extends \gamboamartin\template\html {
     }
 
     /**
-     * @param string $descripcion_select
+     * Integra un option para un select html
+     * @param string $descripcion_select Descripcion para mostrar en select
      * @param mixed $id_selected Id o valor a comparar origen de la base de valor
-     * @param mixed $value
+     * @param mixed $value Valor para selected
      * @return array|string
+     * @version 0.58.8
      */
-    private function option_html(string $descripcion_select, mixed $id_selected, mixed $value): array|string
+    private function option_html(string $descripcion_select, mixed $id_selected, int|string|null $value): array|string
     {
-        $value = (int)$value;
+        if(is_null($value)){
+            $value = '';
+        }
+        if(is_numeric($value)) {
+            $value = (int)$value;
+        }
         $selected = $this->selected(value: $value,id_selected: $id_selected);
         if(errores::$error){
             return $this->error->error(mensaje: 'Error al verificar selected', data: $selected);
@@ -344,10 +347,12 @@ class html extends \gamboamartin\template\html {
     }
 
     /**
+     * POR ELIMINAR
+     * Genera un conjunto de options para la integracion a un select
      * @param mixed $id_selected Id o valor a comparar origen de la base de valor
-     * @param array $values
+     * @param array $values Valores para generar options
      * @return array|string
-     */
+
     private function options(mixed $id_selected, array $values): array|string
     {
         $options_html = $this->option(descripcion: 'Selecciona una opcion',selected:  false, value: -1);
@@ -359,12 +364,12 @@ class html extends \gamboamartin\template\html {
             return $this->error->error(mensaje: 'Error al generar options', data: $options_html);
         }
         return $options_html;
-    }
+    }*/
 
     /**
      * @param mixed $id_selected Id o valor a comparar origen de la base de valor
-     * @param string $options_html
-     * @param array $values
+     * @param string $options_html Options previos precargados
+     * @param array $values Valores para generacion de options
      * @return array|string
      */
     private function options_html_data(mixed $id_selected, string $options_html, array $values): array|string
