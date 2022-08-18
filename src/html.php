@@ -66,12 +66,13 @@ class html extends \gamboamartin\template\html {
     {
 
         $html = parent::button_href(accion: $accion,etiqueta:  $etiqueta,registro_id:  $registro_id,
-            seccion:  $seccion, style: $style);
+            seccion:  $seccion, style: $style, params: $params);
         if(errores::$error){
             return $this->error->error(mensaje: 'Error al generar boton', data: $html);
         }
 
-        return str_replace(array('|role|', '|class|'), array("role='button'", "class='btn btn-$style col-sm-12'"), $html);
+        return str_replace(array('|role|', '|class|'), array("role='button'",
+            "class='btn btn-$style col-sm-12'"), $html);
     }
 
 

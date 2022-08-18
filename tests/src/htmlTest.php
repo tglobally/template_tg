@@ -76,6 +76,21 @@ class htmlTest extends test {
         $this->assertIsString($resultado);
         $this->assertNotTrue(errores::$error);
         $this->assertEquals("<a role='button' href='index.php?seccion=a&accion=a&registro_id=-1&session_id=1' class='btn btn-a col-sm-12'>a</a>", $resultado);
+
+        errores::$error = false;
+
+        $accion = 'a';
+        $etiqueta = 'a';
+        $registro_id = '-1';
+        $seccion = 'a';
+        $style = 'a';
+        $_GET['session_id'] = 1;
+        $params['x'] = 'z';
+        $resultado = $html->button_href($accion, $etiqueta, $registro_id, $seccion, $style, $params);
+        $this->assertIsString($resultado);
+        $this->assertNotTrue(errores::$error);
+        $this->assertEquals("<a role='button' href='index.php?seccion=a&accion=a&registro_id=-1&session_id=1&x=z' class='btn btn-a col-sm-12'>a</a>", $resultado);
+
         errores::$error = false;
     }
 
