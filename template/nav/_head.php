@@ -32,12 +32,12 @@ $url_assets = (new views())->url_assets;
 
 <div class="overlay-navigation">
     <nav role="navigation">
-        <ul>
-            <li><a href="#" data-content="<?php echo $controlador->subtitulos_menu[0]; ?>" id="Home-text-0"></a></li>
-            <li><a class="" href="#" data-content="<?php echo $controlador->subtitulos_menu[1]; ?>" id="Home-text-1" >About</a></li>
-            <li><a href="#" data-content="<?php echo $controlador->subtitulos_menu[2]; ?>" id="Home-text-2">Skills</a></li>
-            <li><a href="#" data-content="<?php echo $controlador->subtitulos_menu[3]; ?>" id="Home-text-3">Works</a></li>
-            <li><a href="#" data-content="<?php echo $controlador->subtitulos_menu[4]; ?>" id="Home-text-4">Contact</a></li>
+        <ul class="nav-container">
+            <li class="nav-container-element" ><a class="nav-element" href="#" data-content="<?php echo $subtitulo0?>" id="Home-text-0"></a></li>
+            <li class="nav-container-element" ><a class="nav-element" href="#" data-content="<?php echo $subtitulo1?>" id="Home-text-1" >About</a></li>
+            <li class="nav-container-element" ><a class="nav-element" href="#" data-content="<?php echo $subtitulo2?>" id="Home-text-2">Skills</a></li>
+            <li class="nav-container-element" ><a class="nav-element" href="#" data-content="<?php echo $subtitulo3?>" id="Home-text-3">Works</a></li>
+            <li class="nav-container-element" ><a class="nav-element" href="#" data-content="<?php echo $subtitulo4?>" id="Home-text-4">Contact</a></li>
         </ul>
     </nav>
 </div>
