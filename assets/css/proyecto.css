@@ -500,20 +500,7 @@ Animation keyframes
         background-color: #fff;
     }
 }
-.home a{
-    font-family: "Work Sans", sans-serif;
-    color: #fff;
-    font-weight: 300;
-    font-size: 12px;
-    text-transform: uppercase;
-    text-decoration: none;
-    position: absolute;
-    z-index: 10;
-    top:50px;
-    left:50px;
-    padding-bottom: 3px;
-    border-bottom: 1px solid #fff;
-}
+
 @media (max-width: 640px) {
     nav ul li a {
         font-size: 11px;
