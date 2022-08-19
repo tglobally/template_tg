@@ -170,7 +170,7 @@ class html extends \gamboamartin\template\html {
 
     /**
      * Genera un div con un select
-     * @param string $name
+     * @param string $name Name del input a integrar
      * @param string $options_html
      * @param bool $disabled
      * @param bool $required
@@ -268,7 +268,7 @@ class html extends \gamboamartin\template\html {
      * @param int $cols Numero de columnas css
      * @param string $label Etiqueta a mostrar en div
      * @param string $name Name del input
-     * @param string $options_html
+     * @param string $options_html Options en forma de html
      * @return array|string
      */
     private function select_html(int $cols, string $label, string $name, string $options_html): array|string
