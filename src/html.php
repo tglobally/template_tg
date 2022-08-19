@@ -129,8 +129,19 @@ class html extends \gamboamartin\template\html {
         return $div_controls_ini.$contenido.$div_controls_fin;
     }
 
+    /**
+     * Genera un div group
+     * @param int $cols N columnas css
+     * @param string $html Html
+     * @return string|array
+     * @version 0.60.8
+     */
     public function div_group(int $cols, string $html): string|array
     {
+        $valida = (new directivas())->valida_cols(cols: $cols);
+        if(errores::$error){
+            return $this->error->error(mensaje: 'Error al validar cols', data: $valida);
+        }
         $html_r = parent::div_group(cols: $cols,html:  $html);
         if(errores::$error){
             return $this->error->error(mensaje: 'Error al generar div', data: $html_r);
@@ -346,25 +357,7 @@ class html extends \gamboamartin\template\html {
         return $option_html;
     }
 
-    /**
-     * POR ELIMINAR
-     * Genera un conjunto de options para la integracion a un select
-     * @param mixed $id_selected Id o valor a comparar origen de la base de valor
-     * @param array $values Valores para generar options
-     * @return array|string
 
-    private function options(mixed $id_selected, array $values): array|string
-    {
-        $options_html = $this->option(descripcion: 'Selecciona una opcion',selected:  false, value: -1);
-        if(errores::$error){
-            return $this->error->error(mensaje: 'Error al generar option', data: $options_html);
-        }
-        $options_html = $this->options_html_data(id_selected: $id_selected,options_html: $options_html,values: $values);
-        if(errores::$error){
-            return $this->error->error(mensaje: 'Error al generar options', data: $options_html);
-        }
-        return $options_html;
-    }*/
 
     /**
      * @param mixed $id_selected Id o valor a comparar origen de la base de valor
