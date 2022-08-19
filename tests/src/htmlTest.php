@@ -144,6 +144,22 @@ class htmlTest extends test {
         errores::$error = false;
     }
 
+    public function test_div_label(): void
+    {
+        errores::$error = false;
+        $html = new html();
+        //$html = new liberator($html);
+
+
+        $label = '';
+        $html_ = '';
+        $resultado = $html->div_label($html_, $label);
+        $this->assertIsString($resultado);
+        $this->assertNotTrue(errores::$error);
+        $this->assertEquals("<div class='controls'></div>", $resultado);
+        errores::$error = false;
+    }
+
 
     public function test_label(): void
     {

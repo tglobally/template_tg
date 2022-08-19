@@ -150,6 +150,13 @@ class html extends \gamboamartin\template\html {
         return str_replace(array('|class|'), array("class='control-group col-sm-$cols'"), $html_r);
     }
 
+    /**
+     * Genera un div con label
+     * @param string $html Contenido html
+     * @param string $label Etiqueta
+     * @return string
+     * @version 0.62.8
+     */
     public function div_label(string $html, string $label): string
     {
         $html = parent::div_label(html: $html,label:  $label);
