@@ -1,0 +1,21 @@
+.btn-guarda {
+    color: #fff;
+    background-color: #000098;
+    border-color: #000098;
+    border-radius: 4px;
+}
+.btn-info {
+    border-radius: 4px;
+    background-color: #000098;
+    border-color: #000098;
+}
+.btn-warning {
+    border-radius: 4px;
+}
+.btn-danger {
+    border-radius: 4px;
+}
+
+.table .table-dark th{
+    background-color: #0B0595;
+}
