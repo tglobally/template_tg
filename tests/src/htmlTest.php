@@ -194,13 +194,16 @@ class htmlTest extends test {
 
 
         $disabled = false;
-        $id_css = '';
-        $name = '';
-        $place_holder = '';
+        $id_css = 'c';
+        $name = 'a';
+        $place_holder = 'd';
         $required = false;
         $value = '';
         $resultado = $html->email($disabled, $id_css, $name, $place_holder, $required, $value);
-        print_r($resultado);exit;
+        $this->assertIsString($resultado);
+        $this->assertNotTrue(errores::$error);
+        $this->assertStringContainsStringIgnoringCase(' id="c" placeholder="d" pattern="[a-z0-9!#$%&', $resultado);
+        errores::$error = false;
     }
 
 

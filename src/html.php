@@ -214,6 +214,11 @@ class html extends \gamboamartin\template\html {
                           mixed $value): string|array
     {
 
+        $valida = $this->valida_params_txt(id_css: $id_css,name:  $name,place_holder:  $place_holder);
+        if(errores::$error){
+            return $this->error->error(mensaje: 'Error al validar datos', data: $valida);
+        }
+
         $html = parent::email(disabled:$disabled,id_css:  $id_css,name:  $name,place_holder:  $place_holder,
             required:  $required,value:  $value);
         if(errores::$error){
