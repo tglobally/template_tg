@@ -264,43 +264,6 @@ class html extends \gamboamartin\template\html {
 
 
     /**
-     * @param int $cols Numero de columnas css
-     * @param string $label Etiqueta a mostrar en div
-     * @param string $name Name del input
-     * @param string $options_html Options en forma de html
-     * @param bool $disabled
-     * @param bool $required
-     * @return array|string
-     */
-    private function select_html(int $cols, string $label, string $name, string $options_html, bool $disabled = false,
-                                 bool $required = false): array|string
-    {
-        $label = trim($label);
-        $name = trim($name);
-        $valida = $this->valida_input_select(cols: $cols, label: $label, name: $name);
-        if(errores::$error){
-            return $this->error->error(mensaje: 'Error al validar input', data: $valida);
-        }
-
-        $select = $this->div_select(name: $name,options_html: $options_html, disabled:$disabled, required:  $required);
-
-        if(errores::$error){
-            return $this->error->error(mensaje: 'Error al generar contenedor', data: $select);
-        }
-
-        $select = $this->div_controls(contenido: $select);
-        if(errores::$error){
-            return $this->error->error(mensaje: 'Error al generar contenedor', data: $select);
-        }
-
-        $select = $this->div_control_group_cols_label(cols: $cols,contenido: $select,label: $label,name: $name);
-        if(errores::$error){
-            return $this->error->error(mensaje: 'Error al generar contenedor', data: $select);
-        }
-        return $select;
-    }
-
-    /**
      * Genera un label html
      * @version 0.10.0
      * @param string $id_css id de css
