@@ -75,9 +75,6 @@ class html extends \gamboamartin\template\html {
             "class='btn btn-$style col-sm-12'"), $html);
     }
 
-
-
-
     /**
      * Genera un div group
      * @param int $cols N columnas css
@@ -203,8 +200,6 @@ class html extends \gamboamartin\template\html {
     }
 
 
-
-
     /**
      * Genera un label html
      * @version 0.10.0
@@ -229,8 +224,6 @@ class html extends \gamboamartin\template\html {
 
         return "<label class='control-label' for='$id_css'>$place_holder</label>";
     }
-
-
 
     /**
      * Genera um input text basado en los parametros enviados
