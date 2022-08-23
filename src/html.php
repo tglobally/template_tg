@@ -171,9 +171,9 @@ class html extends \gamboamartin\template\html {
     /**
      * Genera un div con un select
      * @param string $name Name del input a integrar
-     * @param string $options_html
-     * @param bool $disabled
-     * @param bool $required
+     * @param string $options_html Conjunto de options para select
+     * @param bool $disabled Si disabled atributo disabled se incrusta en select
+     * @param bool $required si required atributo required se integra a select
      * @return array|string
      */
     protected function div_select(string $name, string $options_html, bool $disabled = false,
@@ -273,6 +273,13 @@ class html extends \gamboamartin\template\html {
      */
     private function select_html(int $cols, string $label, string $name, string $options_html): array|string
     {
+        $label = trim($label);
+        $name = trim($name);
+        $valida = $this->valida_input_select(cols: $cols, label: $label, name: $name);
+        if(errores::$error){
+            return $this->error->error(mensaje: 'Error al validar input', data: $valida);
+        }
+
         $select = $this->div_select(name: $name,options_html: $options_html);
         if(errores::$error){
             return $this->error->error(mensaje: 'Error al generar contenedor', data: $select);
