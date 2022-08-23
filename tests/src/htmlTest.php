@@ -186,6 +186,23 @@ class htmlTest extends test {
         errores::$error = false;
     }
 
+    public function test_email(): void
+    {
+        errores::$error = false;
+        $html = new html();
+        //$html = new liberator($html);
+
+
+        $disabled = false;
+        $id_css = '';
+        $name = '';
+        $place_holder = '';
+        $required = false;
+        $value = '';
+        $resultado = $html->email($disabled, $id_css, $name, $place_holder, $required, $value);
+        print_r($resultado);exit;
+    }
+
 
     public function test_label(): void
     {

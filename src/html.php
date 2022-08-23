@@ -208,6 +208,7 @@ class html extends \gamboamartin\template\html {
      * @param bool $required Si required aplica required en html
      * @param mixed $value Valor de input
      * @return string|array
+     * @version 0.70.8
      */
     public function email(bool $disabled, string $id_css, string $name, string $place_holder, bool $required,
                           mixed $value): string|array
