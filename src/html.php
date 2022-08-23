@@ -263,15 +263,17 @@ class html extends \gamboamartin\template\html {
     }
 
 
-
     /**
      * @param int $cols Numero de columnas css
      * @param string $label Etiqueta a mostrar en div
      * @param string $name Name del input
      * @param string $options_html Options en forma de html
+     * @param bool $disabled
+     * @param bool $required
      * @return array|string
      */
-    private function select_html(int $cols, string $label, string $name, string $options_html): array|string
+    private function select_html(int $cols, string $label, string $name, string $options_html, bool $disabled = false,
+                                 bool $required = false): array|string
     {
         $label = trim($label);
         $name = trim($name);
@@ -280,7 +282,8 @@ class html extends \gamboamartin\template\html {
             return $this->error->error(mensaje: 'Error al validar input', data: $valida);
         }
 
-        $select = $this->div_select(name: $name,options_html: $options_html);
+        $select = $this->div_select(name: $name,options_html: $options_html, disabled:$disabled, required:  $required);
+
         if(errores::$error){
             return $this->error->error(mensaje: 'Error al generar contenedor', data: $select);
         }
