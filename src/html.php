@@ -231,13 +231,14 @@ class html extends \gamboamartin\template\html {
 
     /**
      * Genera un input de tipo fecha
-     * @param bool $disabled
-     * @param string $id_css
-     * @param string $name
-     * @param string $place_holder
-     * @param bool $required
-     * @param mixed $value
+     * @param bool $disabled si disabled se integra atributo disabled
+     * @param string $id_css id css
+     * @param string $name nombre del input
+     * @param string $place_holder etiqueta a mostrar dentro de input
+     * @param bool $required si required se integra atributo required
+     * @param mixed $value Valor de input fecha
      * @return string|array
+     * @version 0.91.4
      */
     public function fecha(bool $disabled, string $id_css, string $name, string $place_holder, bool $required,
                          mixed $value): string|array

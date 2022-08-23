@@ -206,6 +206,26 @@ class htmlTest extends test {
         errores::$error = false;
     }
 
+    public function test_fecha(): void
+    {
+        errores::$error = false;
+        $html = new html();
+        //$html = new liberator($html);
+
+
+        $disabled = false;
+        $id_css = 'c';
+        $name = 'a';
+        $place_holder = 'd';
+        $required = false;
+        $value = '';
+        $resultado = $html->fecha($disabled, $id_css, $name, $place_holder, $required, $value);
+        $this->assertIsString($resultado);
+        $this->assertNotTrue(errores::$error);
+        $this->assertStringContainsStringIgnoringCase(" type='date' name='a' ", $resultado);
+        errores::$error = false;
+    }
+
 
     public function test_label(): void
     {
