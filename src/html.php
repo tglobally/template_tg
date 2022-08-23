@@ -175,10 +175,15 @@ class html extends \gamboamartin\template\html {
      * @param bool $disabled Si disabled atributo disabled se incrusta en select
      * @param bool $required si required atributo required se integra a select
      * @return array|string
+     * @version 0.69.8
      */
     protected function div_select(string $name, string $options_html, bool $disabled = false,
                                   bool $required = false): array|string
     {
+        $name = trim($name);
+        if($name === ''){
+            return $this->error->error(mensaje: 'Error name no puede venir vacio', data: $name);
+        }
         $required_html = (new params_inputs())->required_html(required: $required);
         if(errores::$error){
             return $this->error->error(mensaje: 'La asignacion de required es incorrecta', data: $required_html);

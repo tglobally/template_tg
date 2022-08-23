@@ -160,6 +160,32 @@ class htmlTest extends test {
         errores::$error = false;
     }
 
+    public function test_div_select(): void
+    {
+        errores::$error = false;
+        $html = new html();
+        $html = new liberator($html);
+
+
+        $name = '';
+        $options_html = '';
+        $resultado = $html->div_select($name, $options_html);
+        $this->assertIsArray($resultado);
+        $this->assertTrue(errores::$error);
+        $this->assertStringContainsStringIgnoringCase("Error name no puede venir vacio", $resultado['mensaje']);
+
+        errores::$error = false;
+
+
+        $name = 'x';
+        $options_html = '';
+        $resultado = $html->div_select($name, $options_html);
+        $this->assertIsString($resultado);
+        $this->assertNotTrue(errores::$error);
+        $this->assertEquals("<select class='form-control selectpicker x' id='x' name='x'  ></select>", $resultado);
+        errores::$error = false;
+    }
+
 
     public function test_label(): void
     {
