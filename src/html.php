@@ -254,15 +254,29 @@ class html extends \gamboamartin\template\html {
     }
 
     /**
+     * Integra los options en un select
      * @param string $descripcion_select Descripcion para se mostrado en un select
      * @param mixed $id_selected Id o valor a comparar origen de la base de valor
      * @param string $options_html Options previamente cargados
-     * @param mixed $value
+     * @param mixed $value Valor de input option
      * @return array|string
+     * @version 0.92.4
      */
     private function integra_options_html(string $descripcion_select, mixed $id_selected, string $options_html,
                                           mixed $value): array|string
     {
+        if(is_null($value)){
+            $value = '';
+        }
+        if(is_numeric($value)) {
+            $value = (int)$value;
+        }
+
+        $valida = $this->valida_option(descripcion: $descripcion_select, value: $value);
+        if(errores::$error){
+            return $this->error->error(mensaje: 'Error al validar option', data: $valida);
+        }
+
         $option_html = $this->option_html(descripcion_select: $descripcion_select,id_selected: $id_selected,
             value: $value);
         if(errores::$error){
@@ -308,7 +322,7 @@ class html extends \gamboamartin\template\html {
      * @return string|array
      * @version 0.44.5
      */
-    PUBLIC function option(string $descripcion, bool $selected, int|string $value): string|array
+    private function option(string $descripcion, bool $selected, int|string $value): string|array
     {
         $valida = $this->valida_option(descripcion: $descripcion, value: $value);
         if(errores::$error){
@@ -337,6 +351,12 @@ class html extends \gamboamartin\template\html {
         if(is_numeric($value)) {
             $value = (int)$value;
         }
+
+        $valida = $this->valida_option(descripcion: $descripcion_select, value: $value);
+        if(errores::$error){
+            return $this->error->error(mensaje: 'Error al validar option', data: $valida);
+        }
+
         $selected = $this->selected(value: $value,id_selected: $id_selected);
         if(errores::$error){
             return $this->error->error(mensaje: 'Error al verificar selected', data: $selected);

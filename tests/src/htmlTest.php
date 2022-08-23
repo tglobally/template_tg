@@ -226,6 +226,25 @@ class htmlTest extends test {
         errores::$error = false;
     }
 
+    public function test_integra_options_html(): void
+    {
+        errores::$error = false;
+        $html = new html();
+        $html = new liberator($html);
+
+
+        $descripcion_select = 'a';
+        $id_selected = '';
+        $options_html = '';
+
+        $value = 'a';
+        $resultado = $html->integra_options_html($descripcion_select, $id_selected, $options_html, $value);
+        $this->assertIsString($resultado);
+        $this->assertNotTrue(errores::$error);
+        $this->assertStringContainsStringIgnoringCase("<option value='a' >a</option>", $resultado);
+        errores::$error = false;
+    }
+
 
     public function test_label(): void
     {
