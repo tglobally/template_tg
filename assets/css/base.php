@@ -7,4 +7,5 @@ $url_template .= 'css/';
     @import "<?php echo $url_template; ?>secciones.css";
     @import "<?php echo $url_template; ?>forms.css";
     @import "<?php echo $url_template; ?>botones.css";
+    @import "<?php echo $url_template; ?>fonts.css";
 </style>

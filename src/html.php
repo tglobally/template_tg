@@ -76,58 +76,7 @@ class html extends \gamboamartin\template\html {
     }
 
 
-    /**
-     * @param int $cols Numero de columnas css
-     * @param string $contenido Contenido a integrar dentro del div
-     * @param string $label Etiqueta a mostrar en div
-     * @param string $name Name del input
-     * @return string|array
-     * @version 0.45.6
-     * @verfuncion 0.1.0
-     * @author mgamboa
-     * @fecha 2022-08-08 16:08
-     */
-    private function div_control_group_cols_label(int $cols, string $contenido, string $label, string $name): string|array
-    {
-        $name = trim($name);
-        if($name === ''){
-            return $this->error->error(mensaje: 'Error el $name esta vacio', data: $name);
-        }
-        $label = trim($label);
-        if($label === ''){
-            return $this->error->error(mensaje: 'Error el $label esta vacio', data: $label);
-        }
-        $valida = (new directivas())->valida_cols(cols:$cols);
-        if(errores::$error){
-            return $this->error->error(mensaje: 'Error al validar cols', data: $valida);
-        }
 
-        $label_html = $this->label(id_css:$name,place_holder: $label);
-        if(errores::$error){
-            return $this->error->error(mensaje: 'Error al generar label', data: $label_html);
-        }
-
-        $html = $this->div_control_group_cols(cols: $cols,contenido: $label_html.$contenido);
-        if(errores::$error){
-            return $this->error->error(mensaje: 'Error al generar contenedor', data: $html);
-        }
-
-        return $html;
-    }
-
-    /**
-     * Genera un div para forms
-     * @param string $contenido Contenido en html
-     * @return string
-     * @version 0.57.8
-     */
-    private function div_controls(string $contenido): string
-    {
-        $div_controls_ini = "<div class='controls'>";
-        $div_controls_fin = "</div>";
-
-        return $div_controls_ini.$contenido.$div_controls_fin;
-    }
 
     /**
      * Genera un div group
@@ -253,40 +202,7 @@ class html extends \gamboamartin\template\html {
         return str_replace('|class|', "class='form-control'", $html);
     }
 
-    /**
-     * Integra los options en un select
-     * @param string $descripcion_select Descripcion para se mostrado en un select
-     * @param mixed $id_selected Id o valor a comparar origen de la base de valor
-     * @param string $options_html Options previamente cargados
-     * @param mixed $value Valor de input option
-     * @return array|string
-     * @version 0.92.4
-     */
-    private function integra_options_html(string $descripcion_select, mixed $id_selected, string $options_html,
-                                          mixed $value): array|string
-    {
-        if(is_null($value)){
-            $value = '';
-        }
-        if(is_numeric($value)) {
-            $value = (int)$value;
-        }
 
-        $valida = $this->valida_option(descripcion: $descripcion_select, value: $value);
-        if(errores::$error){
-            return $this->error->error(mensaje: 'Error al validar option', data: $valida);
-        }
-
-        $option_html = $this->option_html(descripcion_select: $descripcion_select,id_selected: $id_selected,
-            value: $value);
-        if(errores::$error){
-            return $this->error->error(mensaje: 'Error al generar option', data: $option_html);
-        }
-
-        $options_html.=$option_html;
-
-        return $options_html;
-    }
 
 
     /**
@@ -314,82 +230,6 @@ class html extends \gamboamartin\template\html {
         return "<label class='control-label' for='$id_css'>$place_holder</label>";
     }
 
-    /**
-     * Genera un option para un select
-     * @param string $descripcion descripcion del option
-     * @param bool $selected Si selected se anexa selected a option
-     * @param mixed $value Value del option
-     * @return string|array
-     * @version 0.44.5
-     */
-    private function option(string $descripcion, bool $selected, int|string $value): string|array
-    {
-        $valida = $this->valida_option(descripcion: $descripcion, value: $value);
-        if(errores::$error){
-            return $this->error->error(mensaje: 'Error al validar option', data: $valida);
-        }
-        $selected_html = '';
-        if($selected){
-            $selected_html = 'selected';
-        }
-        return "<option value='$value' $selected_html>$descripcion</option>";
-    }
-
-    /**
-     * Integra un option para un select html
-     * @param string $descripcion_select Descripcion para mostrar en select
-     * @param mixed $id_selected Id o valor a comparar origen de la base de valor
-     * @param mixed $value Valor para selected
-     * @return array|string
-     * @version 0.58.8
-     */
-    private function option_html(string $descripcion_select, mixed $id_selected, int|string|null $value): array|string
-    {
-        if(is_null($value)){
-            $value = '';
-        }
-        if(is_numeric($value)) {
-            $value = (int)$value;
-        }
-
-        $valida = $this->valida_option(descripcion: $descripcion_select, value: $value);
-        if(errores::$error){
-            return $this->error->error(mensaje: 'Error al validar option', data: $valida);
-        }
-
-        $selected = $this->selected(value: $value,id_selected: $id_selected);
-        if(errores::$error){
-            return $this->error->error(mensaje: 'Error al verificar selected', data: $selected);
-        }
-
-        $option_html = $this->option(descripcion: $descripcion_select,selected:  $selected, value: $value);
-        if(errores::$error){
-            return $this->error->error(mensaje: 'Error al generar option', data: $option_html);
-        }
-        return $option_html;
-    }
-
-
-
-    /**
-     * @param mixed $id_selected Id o valor a comparar origen de la base de valor
-     * @param string $options_html Options previos precargados
-     * @param array $values Valores para generacion de options
-     * @return array|string
-     */
-    private function options_html_data(mixed $id_selected, string $options_html, array $values): array|string
-    {
-        $options_html_ = $options_html;
-        foreach ($values as $value=>$descripcion_select){
-
-            $options_html_ = $this->integra_options_html(descripcion_select: $descripcion_select,
-                id_selected: $id_selected,options_html: $options_html_,value: $value);
-            if(errores::$error){
-                return $this->error->error(mensaje: 'Error al generar option', data: $options_html_);
-            }
-        }
-        return $options_html_;
-    }
 
 
     /**

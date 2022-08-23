@@ -226,24 +226,7 @@ class htmlTest extends test {
         errores::$error = false;
     }
 
-    public function test_integra_options_html(): void
-    {
-        errores::$error = false;
-        $html = new html();
-        $html = new liberator($html);
 
-
-        $descripcion_select = 'a';
-        $id_selected = '';
-        $options_html = '';
-
-        $value = 'a';
-        $resultado = $html->integra_options_html($descripcion_select, $id_selected, $options_html, $value);
-        $this->assertIsString($resultado);
-        $this->assertNotTrue(errores::$error);
-        $this->assertStringContainsStringIgnoringCase("<option value='a' >a</option>", $resultado);
-        errores::$error = false;
-    }
 
 
     public function test_label(): void
@@ -265,50 +248,7 @@ class htmlTest extends test {
         errores::$error = false;
     }
 
-    public function test_option(): void
-    {
-        errores::$error = false;
-        $html = new html();
-        $html = new liberator($html);
 
-        $descripcion = 'z';
-        $selected = true;
-        $value = 'a';
-        $resultado = $html->option($descripcion, $selected, $value);
-        $this->assertIsString($resultado);
-        $this->assertNotTrue(errores::$error);
-        $this->assertEquals("<option value='a' selected>z</option>", $resultado);
-
-        errores::$error = false;
-
-        $descripcion = 'z';
-        $selected = false;
-        $value = '-1';
-        $resultado = $html->option($descripcion, $selected, $value);
-        $this->assertIsString($resultado);
-        $this->assertNotTrue(errores::$error);
-        $this->assertEquals("<option value='-1' >z</option>", $resultado);
-        errores::$error = false;
-    }
-
-    public function test_option_html(): void
-    {
-        errores::$error = false;
-        $html = new html();
-        $html = new liberator($html);
-
-
-        $descripcion_select = 'a';
-        $id_selected = '';
-        $value = 'x';
-        $_GET['session_id'] = 1;
-        $resultado = $html->option_html($descripcion_select, $id_selected, $value);
-        $this->assertIsString($resultado);
-        $this->assertNotTrue(errores::$error);
-        $this->assertEquals("<option value='x' >a</option>", $resultado);
-        errores::$error = false;
-
-    }
 
     public function test_text(): void
     {
