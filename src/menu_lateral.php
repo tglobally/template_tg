@@ -33,7 +33,7 @@ class menu_lateral{
 
     /**
      * @param bool $aplica_link si aplica link se habilita link ejecutable para accion
-     * @param system $controlador
+     * @param system $controlador controlador en ejecucion
      * @param string $titulo
      * @return array
      */
@@ -51,7 +51,7 @@ class menu_lateral{
     }
 
     /**
-     * @param system $controlador
+     * @param system $controlador controlador en ejecucion
      * @param int $i Contador de items
      * @return array|stdClass
      */
@@ -75,7 +75,7 @@ class menu_lateral{
 
     /**
      * @param bool $aplica_link
-     * @param system $controlador
+     * @param system $controlador controlador en ejecucion
      * @param int $i Contador de items
      * @return array|stdClass
      */
@@ -96,7 +96,7 @@ class menu_lateral{
 
     /**
      * @param bool $aplica_link si aplica link se habilita link ejecutable para accion
-     * @param system $controlador
+     * @param system $controlador controlador en ejecucion
      * @return array
      */
     private function include_items(bool $aplica_link, system $controlador): array
@@ -135,7 +135,7 @@ class menu_lateral{
 
     /**
      * @param bool $aplica_link
-     * @param system $controlador
+     * @param system $controlador controlador en ejecucion
      * @param int $i Contador de items
      * @return array|stdClass
      */
@@ -155,9 +155,22 @@ class menu_lateral{
     }
 
 
-
-    private function number( string $color, int $i): string
+    /**
+     * Genera el color y el numero para obtencion de boton
+     * @param string $color Color de link azul active gris liga
+     * @param int $i Contador de items
+     * @return string|array
+     * @version 1.4.0
+     */
+    private function number( string $color, int $i): string|array
     {
+        if($i<0){
+            return (new errores())->error(mensaje: 'Error i debe ser mayor a 0', data: $i);
+        }
+        $color = trim($color);
+        if($color === ''){
+            return (new errores())->error(mensaje: 'Error color esta vacio', data: $color);
+        }
         return "$i.$color";
     }
 

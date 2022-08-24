@@ -77,6 +77,24 @@ class menu_lateralTest extends test {
         errores::$error = false;
     }
 
+    /**
+     */
+    #[NoReturn] public function test_number(): void
+    {
+        errores::$error = false;
+        $menu = new menu_lateral();
+        $menu = new liberator($menu);
+
+        $color = 'x';
+        $i = 1;
+        $resultado = $menu->number($color, $i);
+        $this->assertIsString($resultado);
+        $this->assertNotTrue(errores::$error);
+        $this->assertEquals("1.x", $resultado);
+
+        errores::$error = false;
+    }
+
 
 
 
