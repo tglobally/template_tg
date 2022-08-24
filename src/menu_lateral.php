@@ -1,28 +1,47 @@
 <?php
 namespace tglobally\template_tg;
+use base\controller\controler;
 use config\generales;
 use config\views;
 use gamboamartin\errores\errores;
 use gamboamartin\system\system;
+use gamboamartin\validacion\validacion;
 use stdClass;
 
 class menu_lateral{
-    private function color(int $i, int $number_active): string
+
+    /**
+     * Obtiene el color para el numero asignable en el item del link del menu lateral
+     * @param controler $controlador Controlador en ejecucion
+     * @param int $i Contador de items
+     * @return string|array
+     * @version 1.3.0
+     */
+    private function color(controler $controlador, int $i): string|array
     {
+        $keys = array('number_active');
+        $valida = (new validacion())->valida_existencia_keys(keys:$keys, registro: $controlador);
+        if(errores::$error){
+            return (new errores())->error(mensaje: 'Error al validar controlador include', data: $valida);
+        }
         $color = 'gris';
-        if($i===$number_active){
+        if($i===$controlador->number_active){
             $color = 'azul';
         }
         return $color;
     }
 
+    /**
+     * @param bool $aplica_link si aplica link se habilita link ejecutable para accion
+     * @param system $controlador
+     * @param string $titulo
+     * @return array
+     */
     public function contenido_menu_lateral(bool $aplica_link, system $controlador,string $titulo): array
     {
         echo "<div class='col-md-8'>";
         echo "<h3>$titulo</h3>";
-        $data_template = $this->include_items(aplica_link:$aplica_link, number_active: $controlador->number_active,
-            registro_id:  $controlador->registro_id, seccion: $controlador->seccion,
-            total_items_sections: $controlador->total_items_sections);
+        $data_template = $this->include_items(aplica_link:$aplica_link, controlador:$controlador);
         if(errores::$error){
             return (new errores())->error(mensaje: 'Error al integrar include', data: $data_template);
         }
@@ -31,9 +50,14 @@ class menu_lateral{
 
     }
 
-    private function data_template_section(int $i, int $number_active): array|stdClass
+    /**
+     * @param system $controlador
+     * @param int $i Contador de items
+     * @return array|stdClass
+     */
+    private function data_template_section(system $controlador, int $i): array|stdClass
     {
-        $color = $this->color(i:$i,number_active:  $number_active);
+        $color = $this->color(controlador:$controlador, i:$i);
         if(errores::$error){
             return (new errores())->error(mensaje: 'Error al obtener color', data: $color);
         }
@@ -49,10 +73,16 @@ class menu_lateral{
         return $data;
     }
 
-    private function include_item(bool $aplica_link, int $i, int $number_active, int $registro_id, string $seccion): array|stdClass
+    /**
+     * @param bool $aplica_link
+     * @param system $controlador
+     * @param int $i Contador de items
+     * @return array|stdClass
+     */
+    private function include_item(bool $aplica_link, system $controlador, int $i): array|stdClass
     {
         $session_id = (new generales())->session_id;
-        $data_template = $this->init_data_template(aplica_link:$aplica_link,i:$i,number_active: $number_active,seccion:  $seccion);
+        $data_template = $this->init_data_template(aplica_link:$aplica_link, controlador:$controlador,i:$i);
         if(errores::$error){
             return (new errores())->error(mensaje: 'Error al obtener datos', data: $data_template);
         }
@@ -64,15 +94,19 @@ class menu_lateral{
         return $data_template;
     }
 
-    private function include_items(bool $aplica_link, int $number_active, int $registro_id, string $seccion, int $total_items_sections): array
+    /**
+     * @param bool $aplica_link si aplica link se habilita link ejecutable para accion
+     * @param system $controlador
+     * @return array
+     */
+    private function include_items(bool $aplica_link, system $controlador): array
     {
         $i = 1;
         $data_html = array();
-        while($i<=$total_items_sections){ ?>
+        while($i<=$controlador->total_items_sections){ ?>
             <hr class="hr-menu-lateral">
             <?php
-            $data_template = $this->include_item(aplica_link:$aplica_link,i:$i,number_active:  $number_active,
-                registro_id: $registro_id,seccion:  $seccion);
+            $data_template = $this->include_item(aplica_link:$aplica_link, controlador:  $controlador,i:$i);
             if(errores::$error){
                 return (new errores())->error(mensaje: 'Error al integrar include', data: $data_template);
             }
@@ -83,29 +117,36 @@ class menu_lateral{
     }
 
 
-    private function include_number(bool $aplica_link, string $color, int $i, string $seccion): string
+    private function include_number(bool $aplica_link, string $color, system $controlador, int $i): string
     {
         if($aplica_link) {
             if ($color === 'azul') {
-                $include = "templates/$seccion/_base/buttons/number.$color.php";
+                $include = "templates/$controlador->seccion/_base/buttons/number.$color.php";
             } else {
-                $include = "templates/$seccion/_base/links/$i.php";
+                $include = "templates/$controlador->seccion/_base/links/$i.php";
             }
         }
         else{
-            $include  = "templates/$seccion/_base/buttons/number.gris.php";
+            $include  = "templates/$controlador->seccion/_base/buttons/number.gris.php";
         }
 
         return $include;
     }
 
-    private function init_data_template(bool $aplica_link, int $i, int $number_active, string $seccion): array|stdClass
+    /**
+     * @param bool $aplica_link
+     * @param system $controlador
+     * @param int $i Contador de items
+     * @return array|stdClass
+     */
+    private function init_data_template(bool $aplica_link, system $controlador, int $i): array|stdClass
     {
-        $data_template = $this->data_template_section(i:$i,number_active:  $number_active);
+        $data_template = $this->data_template_section(controlador: $controlador, i:$i);
         if(errores::$error){
             return (new errores())->error(mensaje: 'Error al obtener datos', data: $data_template);
         }
-        $include  = $this->include_number(aplica_link:$aplica_link,color: $data_template->color,i: $i,seccion: $seccion);
+        $include  = $this->include_number(aplica_link:$aplica_link,color: $data_template->color,
+            controlador:$controlador,i: $i);
         if(errores::$error){
             return (new errores())->error(mensaje: 'Error al obtener include', data: $include);
         }
