@@ -174,8 +174,16 @@ class menu_lateral{
         return "$i.$color";
     }
 
-    public function number_head(int $number_active): string
+    /**
+     * Obtiene el numero de un head para el template
+     * @param int $number_active Numero de item
+     * @return string|array
+     */
+    public function number_head(int $number_active): string|array
     {
+        if($number_active <= 0){
+            return (new errores())->error(mensaje: 'Error $number_active debe ser mayor a 0', data: $number_active);
+        }
         $url_assets = (new views())->url_assets;
 
         $ruta = $url_assets."img/numeros/$number_active.svg";

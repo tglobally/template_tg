@@ -95,6 +95,22 @@ class menu_lateralTest extends test {
         errores::$error = false;
     }
 
+    /**
+     */
+    #[NoReturn] public function test_number_head(): void
+    {
+        errores::$error = false;
+        $menu = new menu_lateral();
+        //$menu = new liberator($menu);
+
+        $number_active = 1;
+        $resultado = $menu->number_head($number_active);
+        $this->assertIsString($resultado);
+        $this->assertNotTrue(errores::$error);
+        $this->assertEquals("<div class='col-md-4 seccion'><img src='http://localhost/cat_sat/assets/img/numeros/1.svg' class='img-seccion'></div>", $resultado);
+        errores::$error = false;
+    }
+
 
 
 
