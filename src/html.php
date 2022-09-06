@@ -206,6 +206,7 @@ class html extends \gamboamartin\template\html {
      * @param string $id_css id de css
      * @param string $place_holder Etiqueta a mostrar
      * @return string|array string Salida html de label
+     *
      */
     public function label(string $id_css, string $place_holder): string|array
     {

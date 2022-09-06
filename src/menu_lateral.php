@@ -51,12 +51,17 @@ class menu_lateral{
     }
 
     /**
+     * Genera un item para ser integrado en los menus laterales
      * @param system $controlador controlador en ejecucion
      * @param int $i Contador de items
      * @return array|stdClass
+     * @version 1.6.0
      */
-    private function data_template_section(system $controlador, int $i): array|stdClass
+    private function data_template_section(controler $controlador, int $i): array|stdClass
     {
+        if($i<0){
+            return (new errores())->error(mensaje: 'Error i debe ser mayor a 0', data: $i);
+        }
         $color = $this->color(controlador:$controlador, i:$i);
         if(errores::$error){
             return (new errores())->error(mensaje: 'Error al obtener color', data: $color);
@@ -178,6 +183,7 @@ class menu_lateral{
      * Obtiene el numero de un head para el template
      * @param int $number_active Numero de item
      * @return string|array
+     * @version 1.6.0
      */
     public function number_head(int $number_active): string|array
     {

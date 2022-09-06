@@ -79,6 +79,25 @@ class menu_lateralTest extends test {
 
     /**
      */
+    #[NoReturn] public function test_data_template_section(): void
+    {
+        errores::$error = false;
+        $menu = new menu_lateral();
+        $menu = new liberator($menu);
+
+        $controlador   = new controlador_adm_seccion(link: $this->link,paths_conf: $this->paths_conf);
+        $i = 1;
+        $resultado = $menu->data_template_section($controlador, $i);
+
+        $this->assertIsObject($resultado);
+        $this->assertNotTrue(errores::$error);
+        $this->assertEquals("gris", $resultado->color);
+        $this->assertEquals("1.gris", $resultado->number);
+        errores::$error = false;
+    }
+
+    /**
+     */
     #[NoReturn] public function test_number(): void
     {
         errores::$error = false;
