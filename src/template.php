@@ -8,28 +8,38 @@ class template{
 
     public function sidebar(controler $controlador, int $seccion_step = 1)
     {
-        echo "<div class='col-md-3 secciones'>";
-        echo "<div class='col-md-12 int_secciones'>";
-        echo $this->sidebar_stepper($controlador, seccion_step:$seccion_step);
-        echo "<div class='col-md-8'>";
-        echo $this->sidebar_titulo(controlador : $controlador);
-        echo $this->sidebar_menu_items($controlador);
-        echo "</div></div></div>";
+        if (array_key_exists($controlador->accion,$controlador->sidebar)){
+            echo "<div class='col-md-3 secciones'>";
+            echo "<div class='col-md-12 int_secciones'>";
+            echo $this->sidebar_stepper($controlador, seccion_step:$seccion_step);
+            echo "<div class='col-md-8'>";
+            echo $this->sidebar_titulo(controlador : $controlador);
+            echo $this->sidebar_menu_items($controlador);
+            echo "</div></div></div>";
+        }
     }
 
     private function sidebar_titulo(controler $controlador): string{
-        return "<h3> {$controlador->sidebar[$controlador->accion]['titulo']}</h3>";
+
+        if (array_key_exists("titulo",$controlador->sidebar[$controlador->accion])){
+            return "<h3> {$controlador->sidebar[$controlador->accion]['titulo']}</h3>";
+        }
+
+        return "<h3> {$controlador->accion}</h3>";
     }
 
     private function sidebar_stepper(controler $controlador, string $seccion_step): string{
 
         $stepper = "";
-        $ruta_step = (new views())->url_assets."img/stepper/{$seccion_step}.svg";
 
-        if ($controlador->sidebar[$controlador->accion]['stepper_active']){
-            $stepper .= "<div class='col-md-4 seccion'>";
-            $stepper .= "<img src='$ruta_step' class='img-seccion'>";
-            $stepper .= "</div>";
+        if (array_key_exists("stepper_active",$controlador->sidebar[$controlador->accion])){
+            $ruta_step = (new views())->url_assets."img/stepper/{$seccion_step}.svg";
+
+            if ($controlador->sidebar[$controlador->accion]['stepper_active']){
+                $stepper .= "<div class='col-md-4 seccion'>";
+                $stepper .= "<img src='$ruta_step' class='img-seccion'>";
+                $stepper .= "</div>";
+            }
         }
 
         return $stepper;
