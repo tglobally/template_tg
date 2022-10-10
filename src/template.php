@@ -23,7 +23,9 @@ class template{
     private function sidebar_menu_items(controler $controlador): string{
         $items = "";
         foreach ($controlador->sidebar[$controlador->sidebar['seccion']]['menu'] as $item => $menu_item){
-            $items .= "<hr class='hr-menu-lateral'>";
+            if ($item > 0){
+                $items .= "<hr class='hr-menu-lateral'>";
+            }
             if ($menu_item['menu_seccion_active']){
                 $items .=  "<a href='{$menu_item['link']}'>";
                 $items .= $this->sidebar_menu_item_button(item: $item,menu_item: $menu_item);
@@ -46,7 +48,7 @@ class template{
         if ($menu_item["menu_lateral_active"]){
             $is_active = "menu-lateral-active";
         }
-        $button = "<button class='btn btn-default menu-lateral '$is_active>";
+        $button = "<button class='btn btn-default menu-lateral {$is_active} '>";
         $button .= "<img src='$url' class='numero'>";
         $button .= "<span class='texto-menu-lateral'>{$menu_item["menu_item"]}</span>";
         $button .= "</button>";
