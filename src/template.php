@@ -5,11 +5,12 @@ use config\views;
 
 class template{
 
-    
-    public function sidebar(controler $controlador)
+
+    public function sidebar(controler $controlador, int $seccion_step = 1)
     {
         echo "<div class='col-md-3 secciones'>";
         echo "<div class='col-md-12 int_secciones'>";
+        echo $this->sidebar_stepper($controlador, seccion_step:$seccion_step);
         echo "<div class='col-md-8'>";
         echo $this->sidebar_titulo(controlador : $controlador);
         echo $this->sidebar_menu_items($controlador);
@@ -17,12 +18,26 @@ class template{
     }
 
     private function sidebar_titulo(controler $controlador): string{
-        return "<h3> {$controlador->sidebar[$controlador->sidebar['seccion']]['titulo']}</h3>";
+        return "<h3> {$controlador->sidebar[$controlador->accion]['titulo']}</h3>";
+    }
+
+    private function sidebar_stepper(controler $controlador, string $seccion_step): string{
+
+        $stepper = "";
+        $ruta_step = (new views())->url_assets."img/stepper/{$seccion_step}.svg";
+
+        if ($controlador->sidebar[$controlador->accion]['stepper_active']){
+            $stepper .= "<div class='col-md-4 seccion'>";
+            $stepper .= "<img src='$ruta_step' class='img-seccion'>";
+            $stepper .= "</div>";
+        }
+
+        return $stepper;
     }
 
     private function sidebar_menu_items(controler $controlador): string{
         $items = "";
-        foreach ($controlador->sidebar[$controlador->sidebar['seccion']]['menu'] as $item => $menu_item){
+        foreach ($controlador->sidebar[$controlador->accion]['menu'] as $item => $menu_item){
             if ($item > 0){
                 $items .= "<hr class='hr-menu-lateral'>";
             }
@@ -42,9 +57,9 @@ class template{
         $estado = ($menu_item["menu_lateral_active"])? ".azul.svg": ".gris.svg";
         $numero = ($item + 1);
         $url = (new views())->url_assets.'img/stepper/'.$numero.$estado;
-        
+
         $is_active = "";
-        
+
         if ($menu_item["menu_lateral_active"]){
             $is_active = "menu-lateral-active";
         }
@@ -52,7 +67,7 @@ class template{
         $button .= "<img src='$url' class='numero'>";
         $button .= "<span class='texto-menu-lateral'>{$menu_item["menu_item"]}</span>";
         $button .= "</button>";
-        
+
         return $button;
     }
         
