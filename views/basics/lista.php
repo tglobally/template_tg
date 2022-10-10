@@ -8,5 +8,7 @@
                 <?php include (new views())->ruta_templates.'listas/content.php';?>
             </div><!-- /.center-content -->
         </div>
+        <?php include (new views())->ruta_template_base."views/basics/lista.php"; ?>
+
     </div>
 </main>
