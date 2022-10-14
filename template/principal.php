@@ -1,8 +1,10 @@
 <?php /** @var stdClass $data */
 use config\views;
 use gamboamartin\system\links_menu;
+/** @var base\controller\ $controlador */
 
 $views = new views();
+
 
 $path_base_template = $views->ruta_templates;
 if(!isset($views->heads)){
@@ -59,6 +61,9 @@ $links_menu = (new links_menu(registro_id: -1))->links;
 
     <?php include $path_base_template.'java.php'; ?>
     <?php echo $data->js_view; ?>
+    <script>
+        datatable(<?= json_encode($controlador->datatable["columns"]); ?>, <?= json_encode($controlador->datatable["columnDefs"]); ?>);
+    </script>
 </div>
 </body>
 </html>
