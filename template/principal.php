@@ -61,9 +61,12 @@ $links_menu = (new links_menu(registro_id: -1))->links;
 
     <?php include $path_base_template.'java.php'; ?>
     <?php echo $data->js_view; ?>
-    <script>
-        datatable(<?= json_encode($controlador->datatable["columns"]); ?>, <?= json_encode($controlador->datatable["columnDefs"]); ?>);
-    </script>
+    <?php if (isset($controlador->datatables)):?>
+        <?php foreach ($controlador->datatables as $datatable) {
+            $objeto = json_encode($datatable);
+            print_r("<script> datatable($objeto.identificador, $objeto.columns, $objeto.columnDefs, $objeto.data) </script>");
+        } ?>
+    <?php endif;?>
 </div>
 </body>
 </html>
