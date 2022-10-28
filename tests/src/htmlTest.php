@@ -182,7 +182,7 @@ class htmlTest extends test {
         $resultado = $html->div_select($name, $options_html);
         $this->assertIsString($resultado);
         $this->assertNotTrue(errores::$error);
-        $this->assertEquals("<select class='form-control selectpicker x' id='x' name='x'  ></select>", $resultado);
+        $this->assertEquals("<select class='form-control selectpicker x'  id='x' name='x'   data-live-search='true'></select>", $resultado);
         errores::$error = false;
     }
 
@@ -200,9 +200,10 @@ class htmlTest extends test {
         $required = false;
         $value = '';
         $resultado = $html->email($disabled, $id_css, $name, $place_holder, $required, $value);
+
         $this->assertIsString($resultado);
         $this->assertNotTrue(errores::$error);
-        $this->assertStringContainsStringIgnoringCase(' id="c" placeholder="d" pattern="[a-z0-9!#$%&', $resultado);
+        $this->assertStringContainsStringIgnoringCase("|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?$", $resultado);
         errores::$error = false;
     }
 

@@ -126,7 +126,7 @@ class menu_lateralTest extends test {
         $resultado = $menu->number_head($number_active);
         $this->assertIsString($resultado);
         $this->assertNotTrue(errores::$error);
-        $this->assertEquals("<div class='col-md-4 seccion'><img src='http://localhost/cat_sat/assets/img/numeros/1.svg' class='img-seccion'></div>", $resultado);
+        $this->assertStringContainsStringIgnoringCase("class='img-seccion'", $resultado);
         errores::$error = false;
     }
 

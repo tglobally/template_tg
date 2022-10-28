@@ -118,13 +118,14 @@ class html extends \gamboamartin\template\html {
      * Genera un div con un select
      * @param string $name Name del input a integrar
      * @param string $options_html Conjunto de options para select
+     * @param bool $busqueda Si busqueda anexa data-live-search='true' a select
      * @param bool $disabled Si disabled atributo disabled se incrusta en select
      * @param bool $required si required atributo required se integra a select
      * @return array|string
      * @version 0.69.8
      */
-    protected function div_select(string $name, string $options_html, bool $disabled = false,
-                                  bool $required = false): array|string
+    protected function div_select(string $name, string $options_html, bool $busqueda = true,
+                                  bool $disabled = false, bool $required = false): array|string
     {
         $name = trim($name);
         if($name === ''){
@@ -139,7 +140,13 @@ class html extends \gamboamartin\template\html {
             return $this->error->error(mensaje: 'La asignacion de disabled es incorrecta', data: $disabled_html);
         }
 
-        $select_in = "<select class='form-control selectpicker $name' id='$name' name='$name' $required_html $disabled_html>";
+        $busqueda_html = "data-live-search='true'";
+        if(!$busqueda){
+            $busqueda_html = '';
+        }
+
+        $select_in = "<select class='form-control selectpicker $name'  id='$name' name='$name' $required_html ";
+        $select_in .= "$disabled_html $busqueda_html>";
         $select_fin = '</select>';
         return $select_in.$options_html.$select_fin;
     }
