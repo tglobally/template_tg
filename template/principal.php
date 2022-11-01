@@ -13,7 +13,7 @@ if(!isset($views->heads)){
     exit;
 }
 $heads = $views->heads;
-$links_menu = (new links_menu(registro_id: -1))->links;
+$links_menu = (new links_menu(link: $controlador->link, registro_id: -1))->links;
 
 ?>
 <!DOCTYPE html>
