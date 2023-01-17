@@ -245,7 +245,7 @@ class html extends \gamboamartin\template\html {
      * @version 0.15.1
      */
     public function text(bool $disabled, string $id_css, string $name, string $place_holder, bool $required,
-                         mixed $value, string $regex = ""): string|array
+                         mixed $value, string $regex = '', string $title = ''): string|array
     {
 
         $html = parent::text(disabled:$disabled,id_css:  $id_css,name:  $name,place_holder:  $place_holder,
