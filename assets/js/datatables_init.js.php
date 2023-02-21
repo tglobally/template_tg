@@ -1,6 +1,6 @@
 let url_data_table = $(location).attr('href')+"&ws=1" ;
 
-datatable = function (identificador, columns, columnDefs, data) {
+datatable = function (identificador, columns, columnDefs, data, filtro_in) {
 
     let seccion = getParameterByName('seccion');
     let accion = getParameterByName('accion');
@@ -20,7 +20,7 @@ datatable = function (identificador, columns, columnDefs, data) {
         responsive: true,
         ajax: {
             "url": url_data_table,
-            'data' : {data: data},
+            'data' : {data: data, in: filtro_in},
             "error": function(jqXHR, textStatus, errorThrown)
             {
                 let response = jqXHR.responseText;
@@ -28,7 +28,11 @@ datatable = function (identificador, columns, columnDefs, data) {
             }
         },
         columns: columns,
-        columnDefs: _columnDefs
+        columnDefs: _columnDefs,
+        select: {
+            style:    'os',
+            selector: 'td:first-child'
+        },
     });
 };
 
@@ -57,7 +61,6 @@ asigna_columnDefs = function (columnDefs) {
                 })
             } else if (object.type === "button"){
                 objects.forEach(function (e) {
-                    console.log(row[e]);
                     let button = `${row[e]}`;
                     expresion += button
 

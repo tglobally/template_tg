@@ -6,35 +6,6 @@ use gamboamartin\errores\errores;
 
 
 class html extends \gamboamartin\template\html {
-    /**
-     * Genera un alert html boostrap con un mensaje incluido
-     * @version 0.11.0
-     * @param string $mensaje Mensaje a mostrar
-     * @return string|array Resultado en un html
-     */
-    public function alert_success(string $mensaje): string|array
-    {
-        $mensaje = trim($mensaje);
-        if($mensaje === ''){
-            return $this->error->error(mensaje: 'Error mensaje esta vacio', data: $mensaje);
-        }
-        return "<div class='alert alert-success' role='alert' ><strong>Muy bien!</strong> $mensaje.</div>";
-    }
-
-    /**
-     * Genera un alert de tipo warning
-     * @version 1.17.1
-     * @param string $mensaje Mensaje a mostrar en el warning
-     * @return string|array
-     */
-    public function alert_warning(string $mensaje): string|array
-    {
-        $mensaje = trim($mensaje);
-        if($mensaje === ''){
-            return $this->error->error(mensaje: 'Error mensaje esta vacio', data: $mensaje);
-        }
-        return "<div class='alert alert-warning' role='alert' ><strong>Advertencia!</strong> $mensaje.</div>";
-    }
 
     /**
      * Genera un boton
@@ -150,7 +121,6 @@ class html extends \gamboamartin\template\html {
         $select_fin = '</select>';
         return $select_in.$options_html.$select_fin;
     }
-
 
     /**
      * Se genera un input de tipo email
