@@ -124,7 +124,7 @@ class html extends \gamboamartin\template\html {
      * @return array|string
      * @version 0.69.8
      */
-    protected function div_select(string $name, string $options_html, bool $busqueda = true,
+    public function div_select(string $name, string $options_html, bool $busqueda = true,
                                   bool $disabled = false, bool $required = false): array|string
     {
         $name = trim($name);
