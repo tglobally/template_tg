@@ -9,7 +9,7 @@ class template{
     public function sidebar(controler $controlador, int $seccion_step = 1)
     {
         if (array_key_exists($controlador->accion,$controlador->sidebar)){
-            echo "<div class='col-md-2 secciones'>";
+            echo "<div class='col-md-3 secciones'>";
             echo "<div class='col-md-12 int_secciones'>";
             echo $this->sidebar_stepper($controlador, seccion_step:$seccion_step);
             echo "<div class='col-md-8'>";
