@@ -72,7 +72,8 @@ asigna_columnDefs = function (columnDefs) {
                 })
 
                 var menu = `<div class="dropdown">`;
-                menu += `<div id="dropdownMenu" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Opciones</div>`;
+                menu += `<span id="dropdownMenu" class="dropdown-toggle badge badge-info" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Acciones</span>`;
+                //menu += `<div id="dropdownMenu" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Opciones</div>`;
                 menu += `<div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenu">`;
                 menu += `<div class="dropdown-menu-inner" style="display: flex; flex-direction: column; gap: 3px; padding: 10px;">`;
                 menu += item;
