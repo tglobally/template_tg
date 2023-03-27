@@ -51,3 +51,4 @@ use config\views; ?>
         crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 <script src="https://cdn.jsdelivr.net/jquery.validation/1.16.0/jquery.validate.min.js"></script>
 <script src="https://cdn.jsdelivr.net/jquery.validation/1.16.0/additional-methods.min.js"></script>
+<script src="https://unpkg.com/read-excel-file@5.x/bundle/read-excel-file.min.js"></script>
