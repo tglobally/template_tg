@@ -5,8 +5,6 @@ let seccion = getParameterByName('seccion');
 const ruta_load = get_url(seccion, "load_table", {});
 
 $(window).load(function () {
-    console.log(ruta_load)
-
     load_contenido();
 });
 
@@ -43,8 +41,6 @@ const load_contenido = () => {
         contentType: false,
         processData: false,
         success: function (response) {
-            console.log(response)
-
             if (response.status === 'Success') {
                 $('#load').html(response.html);
             } else if (response.status === 'Error') {
@@ -52,6 +48,7 @@ const load_contenido = () => {
             } else {
                 console.log(response)
             }
+            loading = false;
         },
         error: function (XMLHttpRequest, textStatus, errorThrown) {
             let response = XMLHttpRequest.responseText;
