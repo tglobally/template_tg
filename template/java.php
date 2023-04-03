@@ -44,10 +44,6 @@ use config\views; ?>
 
 <script src="<?php echo (new views())->url_assets; ?>js/datatables.min.js"></script>
 <script src="<?php echo (new views())->url_assets; ?>js/datatables_init.js.php"></script>
-<script>
-    const ruta_load = `<?php echo (new views())->ruta_template_table; ?>template_table.php`;
-</script>
-
 <script src="<?php echo (new views())->url_assets; ?>js/load_table.js"></script>
 
 
