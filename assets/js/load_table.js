@@ -55,7 +55,7 @@ const load_contenido = () => {
             response = response.replace('[]', '')
 
             if (response.includes('Acceso denegado')) {
-                const html = `<div class="col-md-9 info-lista" style="margin-top: 20px;"><div class="row-cols-12">
+                const html = `<div class="col-md-12 info-lista" style="margin-top: 20px;"><div class="row-cols-12">
                                 <div class="alert alert-danger" role="alert">
                                     <strong>Oh error!</strong> Acceso denegado - No cuenta con los permisos necesarios para la ruta: <strong>(${ruta_load})</strong>.
                                 </div>
