@@ -63,8 +63,10 @@ $links_menu = (new links_menu(link: $controlador->link, registro_id: -1))->links
     <?php echo $data->js_view; ?>
     <?php if (isset($controlador->datatables)):?>
         <?php foreach ($controlador->datatables as $datatable) {
-            $objeto = json_encode($datatable);
-            print_r("<script> datatable($objeto.identificador, $objeto.columns,$objeto.columnDefs,$objeto.data,$objeto.in) </script>");
+            if ($datatable['type'] === "datatable"){
+                $objeto = json_encode($datatable);
+                print_r("<script> datatable($objeto.identificador, $objeto.columns,$objeto.columnDefs,$objeto.data,$objeto.in) </script>");
+            }
         } ?>
     <?php endif;?>
 </div>
