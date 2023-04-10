@@ -25,8 +25,6 @@ const load_contenido = () => {
         contentType: false,
         processData: false,
         success: function (response) {
-            console.log(response)
-
             if (response.status === 'Success') {
 
                 if (pagina == 1){

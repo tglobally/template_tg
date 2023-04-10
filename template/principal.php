@@ -38,7 +38,7 @@ $links_menu = (new links_menu(link: $controlador->link, registro_id: -1))->links
 
 <body class="login-body">
 <div id="fb-root"></div>
-<div class="container container-wrapper">
+<div class="container container-wrapper" style="background-color: #eaeaea;">
     <header class="header">
         <?php
         $seccion_en_ejecucion = $data->controlador->tabla;
