@@ -5,11 +5,6 @@ let seccion = getParameterByName('seccion');
 const ruta_load = get_url(seccion, "load_table", {});
 
 const load_contenido = () => {
-
-    if ( !$( "#load" ).length ) {
-        return;
-    }
-
     let search = $('#search').val();
     var dataform = new FormData();
 
@@ -25,12 +20,13 @@ const load_contenido = () => {
         contentType: false,
         processData: false,
         success: function (response) {
-            if (response.status === 'Success') {
+            console.log(response)
 
+            if (response.status === 'Success') {
                 if (pagina == 1){
-                    $('#load').html(response.html);
+                    $('#load-table').html(response.html);
                 } else {
-                    $('#load table tbody').append(response.html);
+                    $('#load-table table tbody').append(response.html);
                 }
 
             } else if (response.status === 'Error') {
@@ -51,7 +47,7 @@ const load_contenido = () => {
                                 </div>
                               </div></div>`;
 
-                $('#load').html(html);
+                $('#load-table').html(html);
             } else {
                 alert("Ha ocurrido un error: " + textStatus);
             }
@@ -59,7 +55,38 @@ const load_contenido = () => {
     });
 };
 
+const load_loader = (screen) => {
+    $(document).ajaxStart(function () {
+        screen.fadeIn();
+    }).ajaxStop(function () {
+        screen.fadeOut();
+    })
+}
+
 $(window).load(function () {
+    $('#load-table')
+        .addClass('col-md-9')
+        .css({"display":"flex","justify-content":"center"})
+        .append(`<div id="loader" class="loadingio-spinner-spinner-fbpis5xeagh" style="display: none;">
+        <div class="ldio-kjp6horjcfr">
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        </div>
+        </div>`);
+
+    let screen = $('#loader');
+    load_loader(screen);
+
     load_contenido();
 });
 
@@ -68,6 +95,29 @@ $(window).scroll(function () {
         if (loading == false) {
             loading = true;
             pagina++;
+
+            $( "#loader" ).remove();
+
+            $('#load-table #table-load')
+                .append(`<div id="loader" class="loadingio-spinner-spinner-fbpis5xeagh" >
+        <div class="ldio-kjp6horjcfr">
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        </div>
+        </div>`);
+
+            let screen = $('#loader');
+            load_loader(screen);
             load_contenido();
         }
     }
@@ -76,6 +126,7 @@ $(window).scroll(function () {
 $('#search').keyup(
     delay(function (e) {
         pagina = 1;
+
         load_contenido();
     }, 500)
 );
