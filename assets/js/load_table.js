@@ -1,11 +1,12 @@
 var loading = false;
 var pagina = 1;
+var search = "";
+
 
 let seccion = getParameterByName('seccion');
 const ruta_load = get_url(seccion, "load_table", {});
 
 const load_contenido = () => {
-    let search = $('#search').val();
     var dataform = new FormData();
 
     dataform.append('search', search);
@@ -25,6 +26,7 @@ const load_contenido = () => {
             if (response.status === 'Success') {
                 if (pagina == 1){
                     $('#load-table').html(response.html);
+                    $('#search').val(search)
                 } else {
                     $('#load-table table tbody').append(response.html);
                 }
@@ -34,7 +36,13 @@ const load_contenido = () => {
             } else {
                 console.log(response)
             }
-            loading = false;
+
+
+            if ($('#search').val() != '') {
+                loading = true;
+            } else  {
+                loading = false;
+            }
         },
         error: function (XMLHttpRequest, textStatus, errorThrown) {
             let response = XMLHttpRequest.responseText;
@@ -60,6 +68,14 @@ const load_loader = (screen) => {
         screen.fadeIn();
     }).ajaxStop(function () {
         screen.fadeOut();
+
+        $('#search').keyup(
+            delay(function (e) {
+                pagina = 1;
+                search = $(this).val();
+                load_contenido();
+            }, 500)
+        );
     })
 }
 
@@ -123,12 +139,6 @@ $(window).scroll(function () {
     }
 });
 
-$('#search').keyup(
-    delay(function (e) {
-        pagina = 1;
 
-        load_contenido();
-    }, 500)
-);
 
 
