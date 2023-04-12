@@ -26,18 +26,13 @@ const load_contenido = () => {
         contentType: false,
         processData: false,
         success: function (response) {
+            console.log(response)
+
             if (response.status === 'Success') {
-                if (init == 1){
-                    $('#load-table').html(response.html);
-                    init = 0;
-                    loading = false;
-                } else if (search != ""){
+                if (search != "" ){
                     $('#load-table table tbody').html(response.html);
                     loading = true;
-                } else if (search == "" && pagina == 1){
-                    $('#load-table table tbody').html(response.html);
-                    loading = false;
-                }else  {
+                } else {
                     $('#load-table table tbody').append(response.html);
                     loading = false;
                 }
@@ -81,34 +76,11 @@ const load_loader = (screen) => {
 }
 
 $(window).load(function () {
-    $('#load-table')
-        .addClass('col-md-9')
-        .css({"display":"flex","justify-content":"center"})
-        .append(loader);
+    $('#load-table #table-load').append(loader);
 
     let screen = $('#loader');
     load_loader(screen);
     load_contenido();
-
-    $('#search').keyup(function () {
-        console.log("escribiendo")
-    });
-
-});
-
-$(document).ajaxStop(function () {
-    $('#search').keyup(
-        delay(function (e) {
-            pagina = 1;
-
-            $('#load-table table tbody').html(loader());
-
-            let screen = $('#loader');
-            load_loader(screen);
-            load_contenido();
-        }, 1000)
-    );
-
 });
 
 $(window).scroll(function () {
@@ -117,16 +89,25 @@ $(window).scroll(function () {
             loading = true;
             pagina++;
 
-            $( "#loader" ).remove();
-            $('#load-table #table-load').append(loader);
-
             let screen = $('#loader');
             load_loader(screen);
             load_contenido();
-            console.log("entro")
         }
     }
 });
+
+
+$('#search').keyup(
+    delay(function (e) {
+        pagina = 1;
+        $('#load-table #table-load').append(loader);
+        let screen = $('#loader');
+        load_loader(screen);
+        load_contenido();
+    }, 500)
+);
+
+
 
 
 
