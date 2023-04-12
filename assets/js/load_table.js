@@ -1,16 +1,21 @@
 var loading = false;
 var pagina = 1;
-var search = "";
 
+var init = 1;
 
 let seccion = getParameterByName('seccion');
 const ruta_load = get_url(seccion, "load_table", {});
 
 const load_contenido = () => {
     var dataform = new FormData();
+    var search = "";
+
+    if ($('#search').val() != undefined) {
+        search = $('#search').val();
+    }
 
     dataform.append('search', search);
-    dataform.append('estado', true);
+    dataform.append('init', init);
     dataform.append('pagina', pagina);
 
     $.ajax({
@@ -21,27 +26,25 @@ const load_contenido = () => {
         contentType: false,
         processData: false,
         success: function (response) {
-            console.log(response)
-
             if (response.status === 'Success') {
-                if (pagina == 1){
+                if (init == 1){
                     $('#load-table').html(response.html);
-                    $('#search').val(search)
-                } else {
+                    init = 0;
+                    loading = false;
+                } else if (search != ""){
+                    $('#load-table table tbody').html(response.html);
+                    loading = true;
+                } else if (search == "" && pagina == 1){
+                    $('#load-table table tbody').html(response.html);
+                    loading = false;
+                }else  {
                     $('#load-table table tbody').append(response.html);
+                    loading = false;
                 }
-
             } else if (response.status === 'Error') {
                 alert("Ha ocurrido un error: " + response.message);
             } else {
                 console.log(response)
-            }
-
-
-            if ($('#search').val() != '') {
-                loading = true;
-            } else  {
-                loading = false;
             }
         },
         error: function (XMLHttpRequest, textStatus, errorThrown) {
@@ -63,19 +66,17 @@ const load_contenido = () => {
     });
 };
 
+const loader = () => {
+    return `<div id="loader" class="loadingio-spinner-spinner-fbpis5xeagh" style="display: none;">
+                        <div class="ldio-kjp6horjcfr"><div></div><div></div><div></div><div></div><div></div><div>
+                        </div><div></div><div></div><div></div><div></div><div></div><div></div></div></div>`;
+}
+
 const load_loader = (screen) => {
     $(document).ajaxStart(function () {
         screen.fadeIn();
     }).ajaxStop(function () {
         screen.fadeOut();
-
-        $('#search').keyup(
-            delay(function (e) {
-                pagina = 1;
-                search = $(this).val();
-                load_contenido();
-            }, 500)
-        );
     })
 }
 
@@ -83,27 +84,31 @@ $(window).load(function () {
     $('#load-table')
         .addClass('col-md-9')
         .css({"display":"flex","justify-content":"center"})
-        .append(`<div id="loader" class="loadingio-spinner-spinner-fbpis5xeagh" style="display: none;">
-        <div class="ldio-kjp6horjcfr">
-        <div></div>
-        <div></div>
-        <div></div>
-        <div></div>
-        <div></div>
-        <div></div>
-        <div></div>
-        <div></div>
-        <div></div>
-        <div></div>
-        <div></div>
-        <div></div>
-        </div>
-        </div>`);
+        .append(loader);
 
     let screen = $('#loader');
     load_loader(screen);
-
     load_contenido();
+
+    $('#search').keyup(function () {
+        console.log("escribiendo")
+    });
+
+});
+
+$(document).ajaxStop(function () {
+    $('#search').keyup(
+        delay(function (e) {
+            pagina = 1;
+
+            $('#load-table table tbody').html(loader());
+
+            let screen = $('#loader');
+            load_loader(screen);
+            load_contenido();
+        }, 1000)
+    );
+
 });
 
 $(window).scroll(function () {
@@ -113,28 +118,12 @@ $(window).scroll(function () {
             pagina++;
 
             $( "#loader" ).remove();
-
-            $('#load-table #table-load')
-                .append(`<div id="loader" class="loadingio-spinner-spinner-fbpis5xeagh" >
-        <div class="ldio-kjp6horjcfr">
-        <div></div>
-        <div></div>
-        <div></div>
-        <div></div>
-        <div></div>
-        <div></div>
-        <div></div>
-        <div></div>
-        <div></div>
-        <div></div>
-        <div></div>
-        <div></div>
-        </div>
-        </div>`);
+            $('#load-table #table-load').append(loader);
 
             let screen = $('#loader');
             load_loader(screen);
             load_contenido();
+            console.log("entro")
         }
     }
 });
