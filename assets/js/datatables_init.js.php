@@ -12,6 +12,7 @@ datatable = function (identificador, columns, columnDefs, data, filtro_in) {
         url_data_table = url_data_table.replace(seccion, _seccion);
     }
 
+    let _columns = asigna_columns(columns);
     let _columnDefs = asigna_columnDefs(columnDefs);
 
     var table = $(identificador).DataTable({
@@ -26,12 +27,12 @@ datatable = function (identificador, columns, columnDefs, data, filtro_in) {
                 document.body.innerHTML = response.replace('[]', '')
             }
         },
-        columns: columns,
+        columns: _columns,
         columnDefs: _columnDefs,
-        select: {
-            style: 'os',
-            selector: 'td:first-child'
+        'select': {
+            'style': 'multi'
         },
+        'order': [[1, 'asc']]
     });
 };
 
@@ -39,7 +40,12 @@ asigna_columns = function (columns) {
     let salida = []
 
     columns.forEach(function (valor, indice, array) {
-        salida.push({data: valor});
+
+        if (valor.data === "check"){
+            valor.data = null;
+        }
+
+        salida.push(valor);
     });
 
     return salida;
@@ -83,6 +89,18 @@ asigna_columnDefs = function (columnDefs) {
             }
             return expresion;
         }
+
+        if (object.type === "check") {
+            delete object.render
+            delete object.className
+            delete object.defaultContent
+            delete object.orderable
+            delete object.rendered
+            delete object.data
+
+            object.checkboxes = {'selectRow': true}
+        }
+
         salida.push(object);
     });
     return salida;
