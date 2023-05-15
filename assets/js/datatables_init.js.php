@@ -14,6 +14,7 @@ datatable = function (identificador, columns, columnDefs, data, filtro_in) {
 
     let _columns = asigna_columns(columns);
     let _columnDefs = asigna_columnDefs(columnDefs);
+    let _checks = verify_check(columns);
 
     var table = $(identificador).DataTable({
         processing: true,
@@ -29,12 +30,21 @@ datatable = function (identificador, columns, columnDefs, data, filtro_in) {
         },
         columns: _columns,
         columnDefs: _columnDefs,
-        'select': {
-            'style': 'multi'
-        },
-        'order': [[1, 'asc']]
+        'select': _checks.select,
+        'order': _checks.order
     });
 };
+
+verify_check = function (columns) {
+
+    let salida = {'select': {'style': 'single'}, 'order': []};
+
+    if (columns.filter(e => e.title.trim() === '').length > 0) {
+        salida.select = {'style': 'multi'};
+        salida.order = [[1, 'asc']];
+    }
+    return salida;
+}
 
 asigna_columns = function (columns) {
     let salida = []
