@@ -1,0 +1,39 @@
+.h_logo {
+    width: auto;
+    height: 70px;
+    margin-top: 1.5%;
+}
+
+.form-signin {
+    max-width: 370px;
+    padding: 15px;
+}
+
+.btn-primary{
+    background-color: #000099;
+}
+
+.login-button {
+    font-size: 15px;
+    font-family: Helvetica;
+}
+
+.form-floating > .form-control:not(:placeholder-shown) ~ label::after{
+    background-color: transparent;
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus {
+    -webkit-box-shadow: 0 0 0px 1000px #fff inset;
+}
+
+
+
+@media (max-width: 600px) {
+    .h_logo {
+        width: auto;
+        height: 35px;
+        margin-top: 2%;
+    }
+}

@@ -19,7 +19,7 @@ $path_base_template = $views->ruta_templates;
     <title><?php echo $controlador->titulo_pagina; ?></title>
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
     <meta http-equiv="x-ua-compatible" content="ie=edge"/>
-    <?php include $path_base_template . 'template_styles.php'; ?>
+    <?php include $path_base_template . 'template_1/css.php'; ?>
 
     <?php
     if ($data->css_custom->existe_php) {
@@ -57,7 +57,7 @@ $path_base_template = $views->ruta_templates;
 
     <a class="btn btn-scoll-up color-secondary" id="btn-scroll-up"></a>
 
-    <?php include $path_base_template.'template_java.php'; ?>
+    <?php include $path_base_template.'template_1/java.php'; ?>
 
 </div>
 
