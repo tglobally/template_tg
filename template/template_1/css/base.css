@@ -41,6 +41,19 @@ input:-webkit-autofill:focus {
     margin: -30px 0;
 }
 
+.btn-icon {
+    border-radius: 100%;
+    border: 0;
+}
+
+.dropdown-toggle::after {
+    display: none;
+}
+
+.btn-icon:hover, .btn-icon:active {
+    background-color: rgb(229, 229, 229);
+}
+
 .perfil-item{
     display: flex;
 }
@@ -48,6 +61,47 @@ input:-webkit-autofill:focus {
 .perfil-item i {
     margin-right: 1rem;
 }
+
+/* CSS PARA SIDEBAR */
+
+.sidebar-menu-heading {
+    padding-top: 2.5rem;
+    padding-right: 1.5rem;
+    padding-bottom: 0.75rem;
+    padding-left: 1.5rem;
+    font-size: 1.125rem;
+    color: #212121;
+}
+
+.sidebar-menu-divider {
+    display: block;
+    height: 0px;
+    border-top-style: solid;
+    border-top-width: 1px;
+    margin-top: 2.5rem;
+    margin-bottom: 0;
+}
+
+.sidebar-menu-divider {
+    border-color: #e0e0e0;
+}
+
+.nav-link {
+    display: flex !important;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 25px;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    will-change: transform, opacity;
+    overflow: hidden;
+    color: #616161;
+    height: 35px;
+}
+
+.nav-link:hover {
+    background-color: rgba(222, 222, 222, 0.77);
+}
+
 
 
 @media (max-width: 600px) {
