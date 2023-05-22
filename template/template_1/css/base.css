@@ -9,7 +9,7 @@
     padding: 15px;
 }
 
-.btn-primary{
+.btn-primary {
     background-color: #000099;
 }
 
@@ -18,7 +18,7 @@
     font-family: Helvetica;
 }
 
-.form-floating > .form-control:not(:placeholder-shown) ~ label::after{
+.form-floating > .form-control:not(:placeholder-shown) ~ label::after {
     background-color: transparent;
 }
 
@@ -28,6 +28,26 @@ input:-webkit-autofill:focus {
     -webkit-box-shadow: 0 0 0px 1000px #fff inset;
 }
 
+
+/* CSS PARA NAV */
+
+.top-nav {
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.svg-color-blue {
+    filter: invert(100%) saturate(10000%) hue-rotate(200deg);
+    height: 6.5rem;
+    margin: -30px 0;
+}
+
+.perfil-item{
+    display: flex;
+}
+
+.perfil-item i {
+    margin-right: 1rem;
+}
 
 
 @media (max-width: 600px) {

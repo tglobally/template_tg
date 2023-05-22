@@ -33,23 +33,20 @@ $path_base_template = $views->ruta_templates;
 
 <div class="container-fluid p-0">
 
-    <header>
-        <?php
-        $seccion_en_ejecucion = $data->controlador->tabla;
-        $accion_en_ejecucion = 'login';
-        if (isset($_GET['accion'])) {
-            $accion_en_ejecucion = $_GET['accion'];
-        }
+    <?php
+    $seccion_en_ejecucion = $data->controlador->tabla;
+    $accion_en_ejecucion = 'login';
+    if (isset($_GET['accion'])) {
+        $accion_en_ejecucion = $_GET['accion'];
+    }
 
-        if (isset($heads->$seccion_en_ejecucion->$accion_en_ejecucion) && $heads->$seccion_en_ejecucion->$accion_en_ejecucion !== '') {
-            include $heads->adm_session->login;
-        } else {
-            include $path_base_template . 'template_1/structure/_head.php';
-            include $path_base_template . 'template_1/structure/_sidebar.php';
-        }
-        ?>
-    </header>
-
+    if (isset($heads->$seccion_en_ejecucion->$accion_en_ejecucion) && $heads->$seccion_en_ejecucion->$accion_en_ejecucion !== '') {
+        include $heads->adm_session->login;
+    } else {
+        include $path_base_template . 'template_1/structure/_head.php';
+        include $path_base_template . 'template_1/structure/_sidebar.php';
+    }
+    ?>
 
 
     <main class="d-flex align-items-center text-center">
