@@ -44,7 +44,8 @@ $path_base_template = $views->ruta_templates;
         if (isset($heads->$seccion_en_ejecucion->$accion_en_ejecucion) && $heads->$seccion_en_ejecucion->$accion_en_ejecucion !== '') {
             include $heads->adm_session->login;
         } else {
-            include $path_base_template . 'nav/_head.php';
+            include $path_base_template . 'template_1/structure/_head.php';
+            include $path_base_template . 'template_1/structure/_sidebar.php';
         }
         ?>
     </header>
