@@ -1,3 +1,44 @@
+.simplebar-content {
+    display: flex;
+    flex-direction: column;
+    min-height: 100%;
+}
+
+.menu-divider {
+    display: block;
+    height: 0px;
+    border-top-style: solid;
+    border-top-width: 1px;
+    margin-top: 2.5rem;
+    margin-bottom: 0;
+    border-color: #e0e0e0;
+
+}
+
+.nav-link {
+    color: #616161 !important;
+}
+
+.nav-title {
+    text-transform: uppercase;
+    font-size: 0.8rem;
+    margin: 0.75rem 0;
+    font-weight: bold;
+    white-space: nowrap;
+    position: relative;
+}
+
+.nav-link i  {
+    opacity: .3;
+}
+
+.nav-item:hover{
+    background-color: rgba(0, 0, 152, 0.1);
+}
+
+
+
+
 .h_logo {
     width: auto;
     height: 70px;
@@ -35,9 +76,8 @@ input:-webkit-autofill:focus {
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
 }
 
-.svg-color-blue {
-    filter: invert(100%) saturate(10000%) hue-rotate(200deg);
-    height: 6.5rem;
+.svg-logo {
+    height: 8rem;
     margin: -30px 0;
 }
 

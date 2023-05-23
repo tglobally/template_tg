@@ -13,4 +13,12 @@ $url = (new generales())->url_base.'vendor/tglobally/template_tg/template/templa
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
 
 
+
+<link rel="stylesheet" href="https://coreui.io/demos/bootstrap/4.3/light/vendors/simplebar/css/simplebar.css">
+<link rel="stylesheet" href="https://coreui.io/demos/bootstrap/4.3/light/css/vendors/simplebar.css">
+
+
+<link rel="stylesheet" href="<?php echo $url?>core.css" />
+
+
 <link rel="stylesheet" href="<?php echo $url?>base.css" />
