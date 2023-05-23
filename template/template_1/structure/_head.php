@@ -1,11 +1,5 @@
 <?php
-/** @var stdClass $data Obtenido de index de la funcion data para la definicion del men  */
 /** @var base\controller\controler $controlador Controlador en ejecucion  */
-use config\views;
-
-$path_base_template = (new views())->ruta_templates;
-$url_assets = (new views())->url_assets;
-
 ?>
 
 <header class="header header-sticky mb-4">
@@ -17,10 +11,10 @@ $url_assets = (new views())->url_assets;
         <h4>MODULO DE IMSS</h4>
 
         <ul class="header-nav me-4">
-            <li class="nav-item dropdown d-flex align-items-center">
+            <li class="nav-item dropdown d-flex align-items-center" style="border-radius: 100%">
                 <a class="nav-link py-0" data-coreui-toggle="dropdown" href="#" role="button" aria-haspopup="true"
-                   aria-expanded="false">
-                    <div class="avatar avatar-md"><i class="bi bi-person-bounding-box"></i></div>
+                   aria-expanded="false" style="border-radius: 100%">
+                    <i class="bi bi-person-bounding-box"></i>
                 </a>
 
                 <div class="dropdown-menu dropdown-menu-end pt-0">
@@ -36,7 +30,7 @@ $url_assets = (new views())->url_assets;
     </div>
     <div class="header-divider"></div>
     <div class="container-fluid">
-        <h5 class="active" style="color: #c9cdd4">Titulo Seccion</h5>
+        <h5 class="active" style="color: #c9cdd4"><?php echo $controlador->seccion_titulo?></h5>
     </div>
 </header>
 
