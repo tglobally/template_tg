@@ -31,33 +31,22 @@ $path_base_template = $views->ruta_templates;
 </head>
 <body>
 
-<div class="container-fluid p-0">
+<?php
+$seccion_en_ejecucion = $data->controlador->tabla;
+$accion_en_ejecucion = 'login';
+if (isset($_GET['accion'])) {
+    $accion_en_ejecucion = $_GET['accion'];
+}
 
-    <?php
-    $seccion_en_ejecucion = $data->controlador->tabla;
-    $accion_en_ejecucion = 'login';
-    if (isset($_GET['accion'])) {
-        $accion_en_ejecucion = $_GET['accion'];
-    }
+if (isset($heads->$seccion_en_ejecucion->$accion_en_ejecucion) && $heads->$seccion_en_ejecucion->$accion_en_ejecucion !== '') {
+    include $heads->adm_session->login;
+    include($data->include_action);
+} else {
+    include $path_base_template . 'template_1/structure/_main.php';
+}
+?>
 
-    if (isset($heads->$seccion_en_ejecucion->$accion_en_ejecucion) && $heads->$seccion_en_ejecucion->$accion_en_ejecucion !== '') {
-        include $heads->adm_session->login;
-    } else {
-        include $path_base_template . 'template_1/structure/_head.php';
-        include $path_base_template . 'template_1/structure/_sidebar.php';
-    }
-    ?>
-
-
-    <main class="d-flex align-items-center text-center">
-        <?php   include($data->include_action); ?>
-    </main>
-
-    <a class="btn btn-scoll-up color-secondary" id="btn-scroll-up"></a>
-
-    <?php include $path_base_template.'template_1/java.php'; ?>
-
-</div>
+<?php include $path_base_template . 'template_1/java.php'; ?>
 
 </body>
 </html>
