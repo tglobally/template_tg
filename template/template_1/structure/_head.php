@@ -8,41 +8,36 @@ $url_assets = (new views())->url_assets;
 
 ?>
 
-<nav class="top-nav navbar navbar-expand-md navbar-light fixed-top bg-light">
+<header class="header header-sticky mb-4">
+    <div class="container-fluid">
+        <button class="header-toggler px-md-0 me-md-3" type="button"
+                onclick="coreui.Sidebar.getInstance(document.querySelector('#sidebar')).toggle()">
+            <i class="bi bi-list"></i>
+        </button>
+        <h4>MODULO DE IMSS</h4>
 
+        <ul class="header-nav me-4">
+            <li class="nav-item dropdown d-flex align-items-center">
+                <a class="nav-link py-0" data-coreui-toggle="dropdown" href="#" role="button" aria-haspopup="true"
+                   aria-expanded="false">
+                    <div class="avatar avatar-md"><i class="bi bi-person-bounding-box"></i></div>
+                </a>
 
-    <div class="container-fluid px-4">
-        <!-- Drawer toggle button
-        <button class="btn btn-lg btn-icon order-1 order-lg-0 mdc-ripple-upgraded" id="drawerToggle" href="javascript:void(0);" style="--mdc-ripple-fg-size: 28px; --mdc-ripple-fg-scale: 2.7815089640681627; --mdc-ripple-fg-translate-start: 6px, 22px; --mdc-ripple-fg-translate-end: 10px, 10px;"><i class="bi bi-list"></i></button>
-       Navbar brand-->
+                <div class="dropdown-menu dropdown-menu-end pt-0">
 
-        <a class="navbar-brand me-auto" href="./index.php?seccion=adm_session&accion=inicio&session_id=<?php echo $controlador->session_id?>">
-            <div class="">
-                <img src="<?php echo $url_assets?>img/head/tg_logo.svg" class="svg-color-blue">
-            </div>
-        </a>
+                    <div class="dropdown-divider"></div>
 
-        <!-- Navbar items-->
-        <div class="d-flex align-items-center mx-3 me-lg-0">
-            <!-- Navbar-->
-            <!-- Navbar buttons-->
-            <div class="d-flex">
-                <!-- Messages dropdown-->
-                <!-- Notifications and alerts dropdown-->
-                <!-- User profile dropdown-->
-                <div class="dropdown">
-                    <button class="btn btn-lg btn-icon dropdown-toggle mdc-ripple-upgraded" id="dropdownMenuProfile" type="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="bi bi-person-circle"></i></button>
-                    <ul class="dropdown-menu dropdown-menu-end mt-3" aria-labelledby="dropdownMenuProfile">
-                        <li><hr class="dropdown-divider"></li>
-                        <li>
-                            <a class="dropdown-item perfil-item" href="index.php?seccion=adm_session&accion=login">
-                                <i class="bi bi-box-arrow-right"></i>
-                                <div class="me-3">Salir</div>
-                            </a>
-                        </li>
-                    </ul>
+                    <a class="dropdown-item" href="index.php?seccion=adm_session&accion=login">
+                        <i class="bi bi-box-arrow-left " style="margin-right: 5px"></i>
+                        Salir</a>
                 </div>
-            </div>
-        </div>
+            </li>
+        </ul>
     </div>
-</nav>
+    <div class="header-divider"></div>
+    <div class="container-fluid">
+        <h5 class="active" style="color: #c9cdd4">Titulo Seccion</h5>
+    </div>
+</header>
+
+
