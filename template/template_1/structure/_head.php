@@ -8,7 +8,7 @@
                 onclick="coreui.Sidebar.getInstance(document.querySelector('#sidebar')).toggle()">
             <i class="bi bi-list"></i>
         </button>
-        <h4>MODULO DE IMSS</h4>
+        <h4><?php echo $controlador->seccion_titulo?></h4>
 
         <ul class="header-nav me-4">
             <li class="nav-item dropdown d-flex align-items-center" style="border-radius: 100%">
