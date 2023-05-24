@@ -1,3 +1,59 @@
+/* CSS PARA PAGINA DE INICIO - LOGIN */
+
+.h_logo {
+    width: auto;
+    height: 70px;
+    margin-top: 1.5%;
+}
+
+.form-signin {
+    max-width: 370px;
+    padding: 15px;
+}
+
+.btn-primary {
+    background-color: #000099;
+}
+
+.login-button {
+    font-size: 15px;
+    font-family: Helvetica;
+}
+
+.form-floating > .form-control:not(:placeholder-shown) ~ label::after {
+    background-color: transparent;
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus {
+    -webkit-box-shadow: 0 0 0px 1000px #fff inset;
+}
+
+.sidebar .svg-logo {
+    height: 8rem;
+    margin: -30px 0;
+}
+
+.header i {
+    color: #191919;
+    border-radius: 100%;
+    padding: 10px;
+}
+
+.header i:hover {
+    background-color: rgba(222, 222, 222, 0.77);
+}
+
+@media (max-width: 600px) {
+    .h_logo {
+        width: auto;
+        height: 35px;
+        margin-top: 2%;
+    }
+}
+
+/*
 .simplebar-content {
     display: flex;
     flex-direction: column;
@@ -39,47 +95,15 @@
 
 
 
-.h_logo {
-    width: auto;
-    height: 70px;
-    margin-top: 1.5%;
-}
-
-.form-signin {
-    max-width: 370px;
-    padding: 15px;
-}
-
-.btn-primary {
-    background-color: #000099;
-}
-
-.login-button {
-    font-size: 15px;
-    font-family: Helvetica;
-}
-
-.form-floating > .form-control:not(:placeholder-shown) ~ label::after {
-    background-color: transparent;
-}
-
-input:-webkit-autofill,
-input:-webkit-autofill:hover,
-input:-webkit-autofill:focus {
-    -webkit-box-shadow: 0 0 0px 1000px #fff inset;
-}
 
 
-/* CSS PARA NAV */
+
+!* CSS PARA NAV *!
 
 .top-nav {
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
 }
 
-.svg-logo {
-    height: 8rem;
-    margin: -30px 0;
-}
 
 .btn-icon {
     border-radius: 100%;
@@ -102,7 +126,7 @@ input:-webkit-autofill:focus {
     margin-right: 1rem;
 }
 
-/* CSS PARA SIDEBAR */
+!* CSS PARA SIDEBAR *!
 
 .sidebar-menu-heading {
     padding-top: 2.5rem;
@@ -138,16 +162,9 @@ input:-webkit-autofill:focus {
     height: 35px;
 }
 
-.nav-link:hover {
-    background-color: rgba(222, 222, 222, 0.77);
-}
 
 
 
-@media (max-width: 600px) {
-    .h_logo {
-        width: auto;
-        height: 35px;
-        margin-top: 2%;
-    }
-}
+
+
+}*/
