@@ -1,0 +1,1 @@
+$(".control-label").addClass("form-label").removeClass("control-label");

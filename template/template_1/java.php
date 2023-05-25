@@ -1,6 +1,11 @@
 
 <?php use config\generales;
-use config\views; ?>
+use config\views;
+
+$url = (new generales())->url_base.'vendor/tglobally/template_tg/template/template_1/js/';
+
+
+?>
 
 <!-- Start Jquery -->
 <script src="<?php echo (new views())->url_assets; ?>js/jquery-2.2.1.min.js"></script>
@@ -77,3 +82,5 @@ use config\views; ?>
 <script src="https://coreui.io/demos/bootstrap/4.3/light/js/main.js"></script>
 
 <script src="https://coreui.io/demos/bootstrap/4.3/light/vendors/@coreui/coreui-pro/js/coreui.bundle.min.js"></script>
+
+<script src="<?php echo $url?>base.js"></script>
