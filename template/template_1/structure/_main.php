@@ -3,7 +3,7 @@
 
     <?php include $path_base_template . 'template_1/structure/_head.php'; ?>
 
-    <div class="body flex-grow-1 px-3">
+    <div class="body flex-grow-1 px-3 d-flex">
         <?php  include($data->include_action); ?>
     </div>
 </div>
