@@ -53,6 +53,24 @@ input:-webkit-autofill:focus {
     }
 }
 
+/* CSS PARA INPUTS TIPO SELECT */
+
+.bootstrap-select button.dropdown-toggle{
+    background-color: var(--cui-input-bg, #fff);
+    border: 1px solid var(--cui-input-border-color, #c4c9d0);
+}
+
+.bootstrap-select button.dropdown-toggle:focus{
+    outline: thin solid var(--cui-input-border-color, #c4c9d0) !important;
+    outline: 5px auto -webkit-focus-ring-color !important;
+    outline-offset: -2px;
+}
+
+.btn-light:not(:disabled):not(.disabled).active, .btn-light:not(:disabled):not(.disabled):active, .show > .btn-light.dropdown-toggle {
+    background-color: var(--cui-input-bg, #fff);
+    border: 1px solid var(--cui-input-border-color, #c4c9d0);
+}
+
 /*
 .simplebar-content {
     display: flex;

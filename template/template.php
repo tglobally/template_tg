@@ -47,7 +47,6 @@ if (isset($heads->$seccion_en_ejecucion->$accion_en_ejecucion) && $heads->$secci
 ?>
 
 <?php include $path_base_template . 'template_1/java.php'; ?>
-<?php echo $data->js_view; ?>
 <?php if (isset($controlador->datatables)):?>
     <?php foreach ($controlador->datatables as $datatable) {
         if ($datatable['type'] === "datatable"){
