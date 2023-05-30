@@ -51,7 +51,7 @@ asigna_columns = function (columns) {
 
     columns.forEach(function (valor, indice, array) {
 
-        if (valor.data === "check"){
+        if (valor.data === "check") {
             valor.data = null;
         }
 
@@ -80,22 +80,26 @@ asigna_columnDefs = function (columnDefs) {
                     expresion += button
                 })
             } else if (object.type === "menu") {
-                var item = "";
+                var items = "";
 
                 objects.forEach(function (e) {
-                    let button = `${row[e]}`;
-                    item += button
+                    let etiqueta = `${row[e]}`;
+                    var href = $(etiqueta).prop('href');
+                    var title = $(etiqueta).prop('title');
+                    var style = $(etiqueta).prop('class').split("btn-")[1];
+
+                    var button = `<a class="dropdown-item text-${style}" href="${href}">${title}</a>`;
+
+                    items += button
                 })
 
-                var menu = `<div class="dropdown">`;
-                menu += `<span id="dropdownMenu" class="dropdown-toggle badge badge-info" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Acciones</span>`;
-                //menu += `<div id="dropdownMenu" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Opciones</div>`;
-                menu += `<div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenu">`;
-                menu += `<div class="dropdown-menu-inner" style="display: flex; flex-direction: column; gap: 3px; padding: 10px;">`;
-                menu += item;
-                menu += `</div></div></div>`;
-
-                expresion = menu;
+                expresion = `<div class="dropdown text-center">
+                              <button class="btn btn-transparent p-0 dark:text-high-emphasis" type="button" data-coreui-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <i class="bi bi-three-dots-vertical"></i>
+                              </button>
+                              <div class="dropdown-menu dropdown-menu-end" style="">
+                                ${items}
+                            </div>`;
             }
             return expresion;
         }
