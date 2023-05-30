@@ -28,7 +28,7 @@
 
                             <div class="row">
                                 <div class="col">
-                                    <div class="card-title fs-2 fw-semibold">Listado de Movimientos</div>
+                                    <div class="card-title fs-2 fw-semibold"><?php echo $controlador->titulo_accion?></div>
                                 </div>
                                 <div class="col-auto ms-auto">
                                     <button class="btn btn-secondary btn-sm" type="button" data-coreui-toggle="dropdown" aria-expanded="false">
