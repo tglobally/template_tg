@@ -71,6 +71,15 @@ input:-webkit-autofill:focus {
     border: 1px solid var(--cui-input-border-color, #c4c9d0);
 }
 
+.accordion-button {
+    background-color: rgba(227, 225, 225, 0.25);
+    margin-bottom: 10px;
+}
+
+.dropdown-menu {
+    z-index: 1300;
+}
+
 /*
 .simplebar-content {
     display: flex;
