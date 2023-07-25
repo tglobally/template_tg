@@ -20,4 +20,5 @@ $url = (new generales())->url_base.'vendor/tglobally/template_tg/template/templa
 <script src="https://cdn.datatables.net/1.13.4/js/jquery.dataTables.min.js"></script>
 <script src="https://cdn.datatables.net/1.13.4/js/dataTables.bootstrap5.min.js"></script>
 <script src="<?php echo (new views())->url_assets; ?>js/datatables_init.js.php"></script>
+<script src="https://gyrocode.github.io/jquery-datatables-checkboxes/1.2.10/js/dataTables.checkboxes.min.js"></script>
 <script src="<?php echo $url?>base.js"></script>
